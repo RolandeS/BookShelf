@@ -1,3 +1,3 @@
 class Book < ActiveRecord::Base
-	belong_to :shelf
+	belongs_to :shelf
 end

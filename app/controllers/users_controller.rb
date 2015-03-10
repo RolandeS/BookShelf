@@ -14,6 +14,13 @@ class UsersController < ApplicationController
   end
 
   def show
+    # @user = current_user
+    @shelf = Shelf.new
+    @book = Book.new
+    @shelves = current_user.shelves
+    # @display = Shelf.find(params[:id])
+    @books = current_user.books
+
   end
 
   private

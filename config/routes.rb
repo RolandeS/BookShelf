@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'start/index'
 
-  resources :users, only: [:new, :create, :show]
+  resources :users #, only: [:new, :create, :show]
 
   resources :shelves
   resources :books

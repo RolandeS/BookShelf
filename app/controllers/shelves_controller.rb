@@ -26,7 +26,7 @@ class ShelvesController < ApplicationController
   end
 
   def edit
-    @shelf = Shelf.find(params[:id])
+    @shelf = current_shelves.find params[:id]
   end
 
 
@@ -40,7 +40,7 @@ class ShelvesController < ApplicationController
   end
 
   def destroy
-    @shelf = shelf.find(params[:id])
+    @shelf = current_shelves.find params[:id]
     @shelf.destroy
     redirect_to shelves_path, notice: 'Shelf deleted'
   end

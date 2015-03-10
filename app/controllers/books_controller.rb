@@ -28,14 +28,20 @@ before_filter :load_shelf
   end
 
   def edit
+     @book = Book.find params[:id]
   end
 
   def update
+    @book = Book.find(params[:id])
+    if @book.update_attributes(book_params)
+      redirect_to shelves_path
+    end
   end
 
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
+    redirect_to shelves_path
   end
 
   private

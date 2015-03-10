@@ -1,7 +1,8 @@
 class ShelvesController < ApplicationController
   def index
-    @shelf = Shelf.all
-  end
+    @shelves = current_user.shelves 
+    @shelf = Shelf.new
+  end 
 
   def new
     @shelf = Shelf.new
@@ -10,11 +11,10 @@ class ShelvesController < ApplicationController
 # These functions will have to be updated to ajax i.e: ajaxify
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   def create
-    # @shelf = current_user.shelves.new(shelf_params)
     @shelf = Shelf.new(shelf_params)
     @shelf.user_id = current_user.id
     if @shelf.save
-      redirect_to user_path(current_user), notice: 'Your new Shelf is created!'
+      redirect_to shelves_path, notice: 'Your new Shelf is created!'
     else
       flash.now[:alert] = "Oups! An error has occured, please retry to create your shelf.."
       render :new
@@ -22,6 +22,7 @@ class ShelvesController < ApplicationController
   end
 
   def show
+    @shelf = current_shelves.find params[:id]
   end
 
   def edit
@@ -34,14 +35,14 @@ class ShelvesController < ApplicationController
   def update
     @shelf = Shelf.find(params[:id])
     if @shelf.update_attributes(shelf_params)
-      redirect_to shelf_path(@shelf)
+      redirect_to shelves_path
     end
   end
 
   def destroy
     @shelf = shelf.find(params[:id])
     @shelf.destroy
-    redirect_to user_path, notice: 'Shelf deleted'
+    redirect_to shelves_path, notice: 'Shelf deleted'
   end
 
   private

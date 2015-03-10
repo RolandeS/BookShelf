@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+before_filter :load_shelf
+
   def new
   	@user = User.new
   end
@@ -14,17 +16,24 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = current_user
     @shelf = Shelf.new
     @book = Book.new
     @shelves = current_user.shelves
-    # @display = Shelf.find(params[:id])
-    @books = current_user.books
+    
+    @thisShelf = Shelf.find(params[:id])
+
+    if current_user
+      @book = @thisShelf.books.build
+    end
 
   end
 
   private
   def user_params
   	params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
+
+  def load_shelf
+    @shelf = Shelf.all
   end
 end

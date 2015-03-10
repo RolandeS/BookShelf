@@ -4,6 +4,7 @@ before_filter :load_shelf
 
   def index
      @book = Book.all
+     @shelf = Shelf.find(params[:shelf_id])
   end
 
   def new
@@ -12,19 +13,10 @@ before_filter :load_shelf
 
   def create
     @book = @shelf.books.build(book_params)
-    # @book = Book.new(book_params)
-    # @book.shelf_id = current_shelf.id
-    # @book.user = current_user
-
-    @book = Book.new(
-      name: params[:book][:name],
-      link: params[:book][:link],
-      note: params[:book][:note],
-      shelf_id: @shelf.id
-      )
+    @book.shelf = @shelf
 
     if @book.save
-      redirect_to user_path(current_user), notice: 'Your new Book is addded!'
+      redirect_to shelves_path, notice: 'Your new Book is addded!'
     else
       flash.now[:alert] = "Oups! An error has occured, please retry to add your book.."
       render :new
@@ -32,6 +24,7 @@ before_filter :load_shelf
   end
 
   def show
+    @book = Book.find(params[:id])
   end
 
   def edit
@@ -51,6 +44,6 @@ before_filter :load_shelf
   end
     
   def load_shelf
-    @shelf = Shelf.find(params[:shelf_id])
+    @shelf = current_shelves.find(params[:shelf_id])
   end
 end

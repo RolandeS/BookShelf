@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
   resources :users #, only: [:new, :create, :show]
 
-  resources :shelves
-  resources :books
+  resources :shelves do
+    resources :books
+  end
 
   resources :user_sessions, only: [:new, :create, :destroy]
 

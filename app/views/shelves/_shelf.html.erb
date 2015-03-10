@@ -1,6 +1,8 @@
 <p>hhhhhh
 <%= shelf.name %>
 </p>
-<%= render @shelf.books %>
+<%= render shelf.books, locals: {shelf: Shelf.new} %>
 
-<%= render '/books/form' %>
+<%= render partial: '/books/form', locals: {shelf: shelf, book: Book.new} %>
+
+

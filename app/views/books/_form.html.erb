@@ -1,20 +1,22 @@
 
+	<%= form_for([shelf, book]) do |f| %>
+	<div class="field">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :link %>
+		<%= f.text_field :link %>
+	</div>
+	<div class="field">
+		<%= f.label :note %>
+		<%= f.text_field :note %>
+	</div>
 
-<%= form_for([shelf, book]) do |f| %>
-<div class="field">
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+	<div class="actions">
+		<%= f.submit :submit, class: 'button' %>
+	</div>
+	
+	<% end %>
+	<a class="close-reveal-modal">&#215;</a>
 </div>
-<div class="field">
-	<%= f.label :link %>
-	<%= f.text_field :link %>
-</div>
-<div class="field">
-	<%= f.label :note %>
-	<%= f.text_field :note %>
-</div>
-
-<div class="actions">
-	<%= f.submit %>
-</div>
-<% end %>

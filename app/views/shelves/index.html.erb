@@ -1,7 +1,8 @@
-<h1>Shelves</h1>
-<h1><%=current_user.first_name.capitalize %>'s BookShelf</h1>
-
-<%= render @shelves if @shelves %>
-
-<h3>Add a new shelf: </h3>
-<%= render '/shelves/form', locals: {shelf: Shelf.new}  %>
+<div class="row">
+	<h1><%=current_user.first_name.capitalize %>'s BookShelf</h1>
+	<%= render @shelves if @shelves %>
+	<div class='row'>
+		<h3>Add a new shelf: </h3>
+	</div>
+	<%= render '/shelves/form', locals: {shelf: Shelf.new}  %>
+</div>

@@ -1,25 +1,35 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>BookShelf</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<p id="notice"><%= flash[:notice] %></p>
-<p id="alert"><%= flash[:alert] %></p>
+    <title><%= content_for?(:title) ? yield(:title) : "BookShelf" %></title>
 
-<%= yield %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<p class="userinfo">
+  <body>
+    <div class='row'>
+      <p id="notice"><%= flash[:notice] %></p>
+      <p id="alert"><%= flash[:alert] %></p>
+    </div>
+
+    <%= yield %>
+
+    <div class="row">
+    <p class="userinfo">
      <% if current_user %>
        Signed in as <%= current_user.first_name.capitalize %>. <%= link_to "Log out", :logout, method: :post %>
      <% else %>
        <%= link_to "Log in", new_user_session_path %> or <%= link_to "Sign up", new_user_path %>
      <% end %>
-</p>
+    </p>
+  </div>
 
-</body>
+
+  </body>
 </html>

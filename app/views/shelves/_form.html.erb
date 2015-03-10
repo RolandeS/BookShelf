@@ -1,3 +1,4 @@
+<div class='row'>
 <%= form_for @shelf do |f| %>
 <div class="field">
 	<%= f.label :name %>
@@ -5,6 +6,7 @@
 </div>
 
 <div class="actions">
-	<%= f.submit :submit %>
+	<%= f.submit :submit, class: 'button' %>
 </div>
 <% end %>
+</div>

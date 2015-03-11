@@ -1,30 +1,38 @@
-<h4>BookShelf Name: 
-<%= shelf.name %>
-</h4>
+<h4>BookShelf Name: <%= shelf.name %> </h4>
 <%= link_to "Edit BookShelf", edit_shelf_path(shelf) %> | 
 <%= link_to "Delete BookShelf", shelf, data: {confirm: "Are you sure you want to delete this BookShelf?"}, :method => :delete %>
 </br>
 </br>
-<!-- 
-<a data-toggle="modal" data-target="#myModal" data-remote="<%= edit_shelf_path(shelf) %> #modal-edit-fields" class="btn btn-mini">Edit Shelf(MODAL)</a>
 
-<div id="myModal" class="reveal-modal" data-reveal>
+<a href="#" data-reveal-id="shelf_<%= shelf.id %>" class="btn btn-mini">Edit Shelf(MODAL)</a>
+
+<div id="shelf_<%= shelf.id %>" class="reveal-modal" data-reveal>
 	<div id="modal-edit-fields">
-	<%= render partial: 'edit_shelf_fields' %>
+		<h3>Edit Shelf Name</h3>
+		<%= form_for shelf do |f| %>
+			<div class="field">
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</div>
+
+			<div class="actions">
+				<%= f.submit :submit, class: 'button' %>
+			</div>
+		<% end %>
+
 	</div>
-</div> -->
+</div>
 
 <% if shelf.books.any? %>
-	<h3>Books: </h3>
-	<%= render shelf.books, locals: {shelf: Shelf.new} %>
-	<% end %>
+	<h4>Books:</h4>
+	<%= render shelf.books, locals: {shelf: shelf} %>
+<% end %>
 
 </br>
 </br>
 
-<a href="#" data-reveal-id="myModal2" class="button">Add a book: </a>
+<a href="#" data-reveal-id="myModal2" class="button">Add a book:</a>
 <div id="myModal2" class="reveal-modal" data-reveal>
 	<%= render partial: '/books/form', locals: {shelf: shelf, book: Book.new} %>
 </div>
-
 

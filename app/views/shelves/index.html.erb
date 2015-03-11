@@ -4,5 +4,16 @@
 	<div class='row'>
 		<h3>Add a new shelf: </h3>
 	</div>
-	<%= render '/shelves/form', locals: {shelf: Shelf.new}  %>
+	<div class='row'>
+		<%= form_for Shelf.new do |f| %>
+			<div class="field">
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</div>
+
+			<div class="actions">
+				<%= f.submit :submit, class: 'button' %>
+			</div>
+		<% end %>
+	</div>
 </div>

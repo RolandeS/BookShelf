@@ -1,9 +1,7 @@
 class ShelvesController < ApplicationController
   def index
     @shelves = current_user.shelves 
-    @shelf = Shelf.new
-  
-  end 
+  end
 
   def new
     @shelf = Shelf.new

@@ -1,8 +1,8 @@
 class ShelvesController < ApplicationController
   def index
-    @shelves = current_user.shelves 
-    @shelf = Shelf.new
-  end 
+    @shelves = current_user.shelves
+ 
+  end
 
   def new
     @shelf = Shelf.new
@@ -38,8 +38,12 @@ class ShelvesController < ApplicationController
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   def update
     @shelf = Shelf.find(params[:id])
-    if @shelf.update_attributes(shelf_params)
-      redirect_to shelves_path
+    
+    respond_to do |format|
+      if @shelf.update_attributes(shelf_params)
+        format.html {redirect_to shelves_path}
+        format.js
+      end
     end
   end
 

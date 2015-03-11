@@ -1,0 +1,11 @@
+<h3>Edit Shelf Name</h3>
+<%= form_for @shelf do |f| %>
+	<div class="field">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit :submit, class: 'button' %>
+	</div>
+<% end %>

@@ -1,9 +1,22 @@
-
-<h1><%=current_user.first_name.capitalize %>'s BookShelf</h1>
-
-<div id="shelf-list">
+<div class="row">
+	<h1><%=current_user.first_name.capitalize %>'s BookShelf</h1>
+	<div class="shelf-list">
 	<%= render @shelves if @shelves %>
+	</div>
+	<div class='row'>
+		<h3>Add a new shelf: </h3>
+	</div>
+	<div class='row'>
+		<%= form_for Shelf.new, :remote => true do |f| %>
+			<div class="field">
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</div>
+
+			<div class="actions">
+				<%= f.submit :submit, class: 'button' %>
+			</div>
+		<% end %>
+	</div>
 </div>
 
-<h3>Add a new shelf: </h3>
-<%= render '/shelves/form', locals: {shelf: Shelf.new}  %>

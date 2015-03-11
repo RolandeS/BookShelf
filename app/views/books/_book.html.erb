@@ -1,7 +1,9 @@
-<li>
-Book Name: <%= book.name %> </br>
-Book Link: <%= book.link %> </br>
-Book Note: <%= book.note %> </br>
-</li>
-<%= link_to "Edit book", edit_shelf_book_path(book.shelf_id, book) %> | 
-<%= link_to "Delete book", shelf_book_path(book.shelf_id, book), data: {confirm: "Are you sure you want to delete this book?"}, :method => :delete %>
+<div class="book">
+	<li>
+	Book Name: <%= book.name %> </br>
+	Book Link: <%= book.link %> </br>
+	Book Note: <%= book.note %> </br>
+	</li>
+	<%= link_to "Edit book", edit_shelf_book_path(book.shelf_id, book) %> | 
+	<%= link_to "Delete book", shelf_book_path(book.shelf_id, book), data: {confirm: "Are you sure you want to delete this book?"}, :method => :delete %>
+</div>

@@ -12,14 +12,20 @@ before_filter :load_shelf
   end
 
   def create
+
     @book = @shelf.books.build(book_params)
     @book.shelf = @shelf
 
-    if @book.save
-      redirect_to shelves_path, notice: 'Your new Book is addded!'
-    else
-      flash.now[:alert] = "Oups! An error has occured, please retry to add your book.."
-      render :new
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to shelves_path, notice: 'Your new Book is addded!' }
+        format.js {}
+      else
+        format.html { flash.now[:alert] = "Oups! An error has occured, please retry to add your book.."
+                      render shelves_url
+                    }
+        format.js {}
+      end
     end
   end
 
@@ -51,5 +57,6 @@ before_filter :load_shelf
     
   def load_shelf
     @shelf = current_shelves.find(params[:shelf_id])
+    # binding.pry
   end
 end

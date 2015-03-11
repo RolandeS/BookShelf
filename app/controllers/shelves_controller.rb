@@ -13,12 +13,16 @@ class ShelvesController < ApplicationController
   def create
     @shelf = Shelf.new(shelf_params)
     @shelf.user_id = current_user.id
-    if @shelf.save
-      redirect_to shelves_path, notice: 'Your new Shelf is created!'
-    else
-      flash.now[:alert] = "Oups! An error has occured, please retry to create your shelf.."
-      render :new
-    end
+
+    respond_to do |format|
+      if @shelf.save
+        format.html { redirect_to shelves_path, notice: 'Your new Shelf is created!' }
+        format.js {} # This will look for app/views/shelves/create.js.erb
+      else
+        format.html { render shelves_url, alert: "Oups! An error has occured, please retry to create your shelf.."}
+        format.js {} # This will look for app/views/shelves/create.js.erb
+      end
+    end  
   end
 
   def show

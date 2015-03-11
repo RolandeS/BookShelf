@@ -1,6 +1,6 @@
 
 
-<%= form_for([shelf, book]) do |f| %>
+<%= form_for([shelf, book], :remote => true) do |f| %>
 <div class="field">
 	<%= f.label :name %>
 	<%= f.text_field :name %>

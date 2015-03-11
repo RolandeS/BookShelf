@@ -1,0 +1,2 @@
+ 
+$("#book-list").append("<%= escape_javascript(render(:partial => "books/book", locals: { shelf: @shelf, book: @book} )) %>");

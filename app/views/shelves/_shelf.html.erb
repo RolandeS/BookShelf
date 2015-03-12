@@ -16,7 +16,7 @@
 			</div>
 
 			<div class="actions">
-				<%= f.submit :submit, class: 'button' %>
+				<%= f.submit :submit, class: 'button closeModalSubmit'%>
 			</div>
 		<% end %>
 
@@ -26,7 +26,7 @@
 <div id="book-list-<%= shelf.id %>">
 	<% if shelf.books.any? %>
 			<h4>Books:</h4>
-			<%= render shelf.books, locals: {shelf: shelf} %>
+			<%= render shelf.books, locals: {shelf: @shelf, book: @book} %>
 	<% end %>
 </div>
 

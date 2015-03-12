@@ -8,8 +8,6 @@ class ShelvesController < ApplicationController
     @shelf = Shelf.new
   end
 
-# These functions will have to be updated to ajax i.e: ajaxify
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   def create
     @shelf = Shelf.new(shelf_params)
     @shelf.user_id = current_user.id
@@ -33,9 +31,6 @@ class ShelvesController < ApplicationController
     @shelf = current_shelves.find params[:id]
   end
 
-
-# These functions will have to be updated to ajax i.e: ajaxify
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   def update
     @shelf = Shelf.find(params[:id])
     

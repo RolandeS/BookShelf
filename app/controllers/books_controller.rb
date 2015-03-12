@@ -39,9 +39,12 @@ before_filter :load_shelf
 
   def update
     @book = Book.find(params[:id])
-    if @book.update_attributes(book_params)
-      redirect_to shelves_path
-    end
+    respond_to do |format|
+      if @book.update_attributes(book_params)
+        format.html {redirect_to shelves_path}
+        format.js{}
+      end
+    end 
   end
 
   def destroy

@@ -1,8 +1,34 @@
-<div class="book">
+<div id="book-<%= book.id %>">
 	Book Name: <%= book.name %> </br>
 	Book Link: <%= book.link %> </br>
 	Book Note: <%= book.note %> </br>
 
-	<%= link_to "Edit book", edit_shelf_book_path(book.shelf_id, book) %> | 
+	<a href="#" data-reveal-id="book_<%= book.id %>" class="btn btn-mini">Edit Book</a> | 
 	<%= link_to "Delete book", shelf_book_path(book.shelf_id, book), data: {confirm: "Are you sure you want to delete this book?"}, :method => :delete %>
+
+	<div id="book_<%= book.id %>" class="reveal-modal" data-reveal>
+		<div id="modal-edit-book-fields">
+			<% shelf = book.shelf %>
+			<h3>Edit Book</h3>
+			<%= form_for([shelf, book], :remote => true) do |f| %>
+				<div class="field">
+					<%= f.label :name %>
+					<%= f.text_field :name %>
+				</div>
+				<div class="field">
+					<%= f.label :link %>
+					<%= f.text_field :link %>
+				</div>
+				<div class="field">
+					<%= f.label :note %>
+					<%= f.text_field :note %>
+				</div>
+
+				<div class="actions">
+					<%= f.submit :submit, class: 'button closeModalSubmit' %>
+				</div>
+			<% end %>
+			<a class="close-reveal-modal">&#215;</a>	
+		</div>
+	</div>
 </div>

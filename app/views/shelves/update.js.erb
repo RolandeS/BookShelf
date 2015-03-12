@@ -1,1 +1,2 @@
-$("#shelf-<%= @shelf.id %>").html("<%= escape_javascript(render(:partial => "shelves/shelf", locals: { shelf: @shelf} )) %>");
+$("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
+$('.reveal-modal-bg').foundation('reveal', 'close');

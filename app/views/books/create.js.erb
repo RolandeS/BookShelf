@@ -1,2 +1,3 @@
-
 $("#book-list-<%=@shelf.id%>").append("<%= escape_javascript(render(:partial => "books/book", locals: { shelf: @shelf, book: @book} )) %>");
+$('.reveal-modal-bg').foundation('reveal', 'close');
+$('.open form')[0].reset();

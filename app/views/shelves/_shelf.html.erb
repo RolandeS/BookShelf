@@ -1,7 +1,7 @@
 <div id="shelf-<%=shelf.id%>">
-	<h4>BookShelf Name: <%= shelf.name %> </h4>
-	<a href="#" data-reveal-id="shelf_<%= shelf.id %>" class="btn btn-mini">Edit BookShelf</a> | 
-	<%= link_to "Delete BookShelf", shelf, data: {confirm: "Are you sure you want to delete this BookShelf?"}, :method => :delete %>
+	<h4><%= shelf.name %> </h4>
+	<a href="#" data-reveal-id="shelf_<%= shelf.id %>" class="btn btn-mini">Edit</a> | 
+	<%= link_to "Delete", shelf, data: {confirm: "Are you sure you want to delete this BookShelf?"}, :method => :delete %>
 	</br>
 	</br>
 		<div id="shelf_<%= shelf.id %>" class="reveal-modal" data-reveal>
@@ -24,17 +24,14 @@
 
 	<div id="book-list-<%= shelf.id %>">
 		<% if shelf.books.any? %>
-				<h4>Books:</h4>
+				<div class="owl-carousel">
 				<%= render shelf.books, locals: {shelf: @shelf, book: @book} %>
+				</div>
 		<% end %>
-	</div>
-
-	</br>
-	</br>
-
-	<a href="#" data-reveal-id="addBookModal_<%= shelf.id %>" class="button">Add a book:</a>
+			<a href="#" data-reveal-id="addBookModal_<%= shelf.id %>" class="button right">+</a>
 	<div id="addBookModal_<%= shelf.id %>" class="reveal-modal" data-reveal>
 		<%= render partial: '/books/form', locals: {shelf: shelf, book: Book.new} %>
+	</div>
 	</div>
 </div>
 

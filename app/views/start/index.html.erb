@@ -11,6 +11,7 @@
 			<% shelf.books.each do |book| %>
 				<%= book.name %> </br>
 				Book Link: <%= book.link %> </br>
+				<%= book.read %>
 				Note: <%= book.note %> </br>
 				</br>
 			<% end %>

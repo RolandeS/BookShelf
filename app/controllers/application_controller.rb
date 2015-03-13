@@ -5,10 +5,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # def current_shelf
-  # 	@current_shelf ||= Shelf.find(user[:user_id]) if user[:user_id]
-  # end
-
   def current_shelves
   	current_user.shelves
   end

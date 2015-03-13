@@ -1,22 +1,23 @@
 <h1>Get Started</h1>
-<p>Yeeey</p>
 
 <% @shelves.each do |shelf| %>
 	<div class="shelfStart" id="<%= shelf.id %>">
 	<h4><%= shelf.name %> BookShelf</h4>
 
-		<p>Books:</p>
-		<% if shelf.books.any? %>
-			
-			<% shelf.books.each do |book| %>
-				<%= book.name %> </br>
-				Book Link: <%= book.link %> </br>
-				<%= book.read %>
-				Note: <%= book.note %> </br>
-				</br>
-			<% end %>
-		
-		<% end %>
+				<% if shelf.books.any? %>
+					
+					<div class="owl-carousel">
+						<% shelf.books.each do |book| %>
+								<div class= "bookInfo item">
+										<%= link_to book.name.upcase, "http://"+book.link, :target => "_blank" %> </br>
+										<%= book.read %></br>
+										<p class="note"><%= book.note%></p>
+								</div>
+						<% end %>													
+					</div>
+
+				<% end %>
+	
 	</div>
 <% end %>
 

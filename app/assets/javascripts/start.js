@@ -8,8 +8,9 @@ $( document ).ready(function() {
     	$(this).toggleClass('selected');
     	//console.log(selected())
     	// $('#shelf_ids').val(selected());
-	});
+ 
 
+	});
 
 	function selected(){
 		var i;

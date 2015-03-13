@@ -43,17 +43,13 @@ class ShelvesController < ApplicationController
   end
 
   def add_demo_shelves
-    # @shelfIds = Shelf.find(params[:shelf_ids])
-    # @shelfIds.copy_to(current_user)
-    # respond_to |format|
-    #   format.js
-    # end
     respond_to do |format|
         if request.xhr?
           format.js
-          @shelfIds = Shelf.find(params[:shelf_ids])
-          @shelfIds.copy_to(current_user)
-          redirect_to shelves_path
+          @shelves = Shelf.find(params[:shelf_ids])
+          @shelves.each do |shelf|
+            shelf.copy_to(current_user)
+          end
         end
     end
   end

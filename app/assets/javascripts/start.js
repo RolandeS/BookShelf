@@ -1,28 +1,38 @@
 $( document ).ready(function() {
-    console.log( "ready!" );
+    //console.log( "ready!" );
     var chosenBookshelves = [];
 
     $( ".shelfStart" ).on( "click", function( event ) {
     	//chosenBookshelves.push(event.target.id);
 
     	$(this).toggleClass('selected');
-    	// console.log(chosenBookshelves);
-    	
-    	console.log(selected_shelves())
+    	//console.log(selected())
+    	// $('#shelf_ids').val(selected());
 	});
 
-	function selected_shelves() {
-		return $(".shelfStart.selected").map( 
-			function(i, shelftag) { 
-				return shelftag["id"] 
-			}
-		)
+
+	function selected(){
+		var i;
+		var new_ids = [];
+		var ids = $('.selected').map(function(index) {
+    	return this.id; });
+
+    	for (i=0; i<ids.length; i++){
+    		new_ids[i] =parseInt(ids[i]);
+    	}
+		return new_ids;
 	}
 
 	 $('#userShelves').click(function(){
-		$.post("/shelves/add_demo_shelves", {shelf_ids: selected_shelves()}, function() {
-			location = "/shelves"
-		})
-	 });
+	 	var shelf_ids = selected();
 
+		  $.ajax({
+		    url: "/shelves/add_demo_shelves",
+		    data: {'shelf_ids': selected()},
+		    dataType: "script",
+		    type: 'POST'
+		  }).done(function(){
+		  	window.location = "/shelves";
+		  });
+		});
 });

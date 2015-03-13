@@ -12,7 +12,11 @@
 		<%= f.label :note %>
 		<%= f.text_field :note %>
 	</div>
-
+	<div class="description">
+			<%= f.label :read, "Already looked at this page?" %>
+			<%= f.radio_button :read, 'Read' %> Read
+			<%= f.radio_button :read, 'Revisit' %> Revisit Later </br>
+		</div>
 	<div class="actions">
 		<%= f.submit :submit, class: 'button closeModalSubmit'%>
 	</div>

@@ -1,5 +1,6 @@
 <div id="book-<%= book.id %>" class="item">
 	<%= link_to book.name.upcase, "http://"+book.link, :target => "_blank" %> </br>
+	<%= book.read %></br>
 	
 	<div id="book_<%= book.id %>" class="reveal-modal" data-reveal>
 		<div id="modal-edit-book-fields">
@@ -18,7 +19,11 @@
 					<%= f.label :note %>
 					<%= f.text_field :note %>
 				</div>
-
+				<div class="description">
+					<%= f.label :read, "Already looked at this page?" %>
+					<%= f.radio_button :read, 'Read' %> Read
+					<%= f.radio_button :read, 'Revisit' %> Revisit Later </br>
+				</div>
 				<div class="actions">
 					<%= f.submit :submit, class: 'button closeModalSubmit' %>
 				</div>

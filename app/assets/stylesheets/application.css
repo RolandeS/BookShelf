@@ -26,11 +26,12 @@ body {
 	font-weight: 300;
   padding:20px 50px;
 }
+
 .owl-carousel.owl-theme { 
   width:90%;
   margin:0 auto;
-  /*border:solid 1px red;*/
 }
+
 .owl-item .item {
   height:200px;
   padding:0px 10px;
@@ -49,6 +50,14 @@ a.button.right.addshelf {
 
 .detailsLink {
   cursor:pointer;
+}
+
+
+.bookInfo.item.start {
+  height: 200px;
+  padding: 20px 40px;
+  text-align: center;
+  width: 93%;
 }
 
 .owl-theme .owl-controls .owl-buttons div {

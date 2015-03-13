@@ -22,13 +22,13 @@
 			</div>
 		</div>
 
-	<div id="book-list-<%= shelf.id %>">
+	<div id="book-list-<%= shelf.id %>" class="clearfix">
 		<% if shelf.books.any? %>
 				<div class="owl-carousel">
 					<%= render shelf.books, locals: {shelf: @shelf, book: @book} %>
 				</div>
 		<% end %>
-		<a href="#" data-reveal-id="addBookModal_<%= shelf.id %>" class="button right">+</a>
+		<a href="#" data-reveal-id="addBookModal_<%= shelf.id %>" class="button right addshelf">+</a>
 		<div id="addBookModal_<%= shelf.id %>" class="reveal-modal" data-reveal>
 			<%= render partial: '/books/form', locals: {shelf: shelf, book: Book.new} %>
 		</div>

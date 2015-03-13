@@ -16,4 +16,6 @@ $(document).on('ready page:load', function(){
 		});
 	carouselInit(".owl-carousel")
 
+	
 });
+

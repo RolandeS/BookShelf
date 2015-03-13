@@ -1,38 +1,39 @@
 <div id="shelf-<%=shelf.id%>">
 	<h4><%= shelf.name %> </h4>
+
 	<a href="#" data-reveal-id="shelf_<%= shelf.id %>" class="btn btn-mini">Edit</a> | 
 	<%= link_to "Delete", shelf, data: {confirm: "Are you sure you want to delete this BookShelf?"}, :method => :delete %>
 	</br>
 	</br>
 		<div id="shelf_<%= shelf.id %>" class="reveal-modal" data-reveal>
-		<div id="modal-edit-fields">
-			<h3>Edit Shelf Name</h3>
-			<%= form_for shelf, :remote => true do |f| %>
-				<div class="field">
-					<%= f.label :name %>
-					<%= f.text_field :name %>
-				</div>
+			<div id="modal-edit-fields">
+				<h3>Edit Shelf Name</h3>
+				<%= form_for shelf, :remote => true do |f| %>
+					<div class="field">
+						<%= f.label :name %>
+						<%= f.text_field :name %>
+					</div>
 
-				<div class="actions">
-					<%= f.submit :submit, class: 'button closeModalSubmit'%>
-				</div>
-			<% end %>
-			<a class="close-reveal-modal">&#215;</a>
-
+					<div class="actions">
+						<%= f.submit :submit, class: 'button closeModalSubmit'%>
+					</div>
+				<% end %>
+				<a class="close-reveal-modal">&#215;</a>
+			</div>
 		</div>
-	</div>
 
 	<div id="book-list-<%= shelf.id %>">
 		<% if shelf.books.any? %>
 				<div class="owl-carousel">
-				<%= render shelf.books, locals: {shelf: @shelf, book: @book} %>
+					<%= render shelf.books, locals: {shelf: @shelf, book: @book} %>
 				</div>
 		<% end %>
-			<a href="#" data-reveal-id="addBookModal_<%= shelf.id %>" class="button right">+</a>
-	<div id="addBookModal_<%= shelf.id %>" class="reveal-modal" data-reveal>
-		<%= render partial: '/books/form', locals: {shelf: shelf, book: Book.new} %>
+		<a href="#" data-reveal-id="addBookModal_<%= shelf.id %>" class="button right">+</a>
+		<div id="addBookModal_<%= shelf.id %>" class="reveal-modal" data-reveal>
+			<%= render partial: '/books/form', locals: {shelf: shelf, book: Book.new} %>
+		</div>
 	</div>
-	</div>
+
 </div>
 
 

@@ -1,4 +1,3 @@
-$(".shelf-list")
-.append("<%= escape_javascript(render(:partial => "shelves/shelf", locals: { shelf: @shelf} )) %>");
+$(".shelf-list").append("<%= j(render @shelf) %>");
 $('.reveal-modal-bg').foundation('reveal', 'close');
 $('input#shelf_name').last().val("");

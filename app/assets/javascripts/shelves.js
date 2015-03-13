@@ -1,14 +1,20 @@
-$(document).on('ready page:load', function(){
-	$('.closeModalSubmit').on("click", function(){
-		});
-	$(".owl-carousel").owlCarousel({
+function carouselInit(selector) {
+	elems = $(selector)
+
+	elems.owlCarousel({
 		items : 4,
 		navigation : true, 
 		navigationText : ["<",">"],
 		pagination : false,
 		scrollPerPage : false,
 		slideSpeed : 300,
-
 	});
-	
+}
+
+$(document).on('ready page:load', function(){
+	$('.closeModalSubmit').on("click", function(){
+		console.log("<%= book.id %>");
+		});
+	carouselInit(".owl-carousel")
+
 });

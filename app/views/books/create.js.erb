@@ -1,5 +1,21 @@
-$("#book-list-<%=@shelf.id%>").append("<%= escape_javascript(render(:partial => "books/book", locals: { shelf: @shelf, book: @book} )) %>");
-$('.reveal-modal-bg').foundation('reveal', 'close');
+// $("#book-list-<%=@shelf.id%>").append("<%= escape_javascript(render(:partial => "books/book", locals: { shelf: @shelf, book: @book} )) %>");
+
+$("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
+var carousel = $("#shelf-<%= @shelf.id %> .owl-carousel")
+
+carousel.owlCarousel({
+		items : 4,
+		navigation : true, 
+		navigationText : ["<< LEFTWARD"," RIGHTWARD >>>"],
+		pagination : false,
+		scrollPerPage : false,
+		slideSpeed : 300,
+
+	});
+
 $('.open form')[0].reset();
 
-// .owl-carousel
+$('.reveal-modal-bg').foundation('reveal', 'close');
+
+var owl = carousel.data('owlCarousel');
+owl.goTo(<%= @shelf.books.count %>)

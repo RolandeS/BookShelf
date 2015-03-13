@@ -1,9 +1,5 @@
 <div id="book-<%= book.id %>" class="item">
-	<div class="bookIsClickable">
 	<%= link_to book.name.upcase, "http://"+book.link, :target => "_blank" %> </br>
-	</div>
-	<!-- Book Note: <%= book.note %> </br> -->
-
 	
 	<div id="book_<%= book.id %>" class="reveal-modal" data-reveal>
 		<div id="modal-edit-book-fields">

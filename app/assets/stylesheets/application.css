@@ -11,16 +11,21 @@
  * file per style scope.
  *
  *= require_tree .
- *= require_self
  *= require foundation
  *= require foundation_and_overrides
  *= require owl.carousel
  *= require owl.theme
  *= require owl.transitions
+ *= require_self
  */
 
- .owl-carousel.owl-theme {
- 
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+}
+.owl-carousel.owl-theme { 
   width:90%;
   margin:0 auto;
   padding-left:-15px;
@@ -32,3 +37,4 @@
   padding:20px;
   margin-right:15px;
 }
+

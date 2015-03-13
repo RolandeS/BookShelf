@@ -2,7 +2,7 @@
 	<h4><%= shelf.name %> </h4>
 
 	<a href="#" data-reveal-id="shelf_<%= shelf.id %>" class="btn btn-mini">Edit</a> | 
-	<%= link_to "Delete", shelf, data: {confirm: "Are you sure you want to delete this BookShelf?"}, :method => :delete %>
+	<%= link_to "Delete", shelf, data: {confirm: "Are you sure you want to delete this BookShelf?"}, :remote => true, :method => :delete, :class => 'delete_shelf' %>
 	</br>
 	</br>
 		<div id="shelf_<%= shelf.id %>" class="reveal-modal" data-reveal>
@@ -33,8 +33,4 @@
 			<%= render partial: '/books/form', locals: {shelf: shelf, book: Book.new} %>
 		</div>
 	</div>
-
 </div>
-
-
-

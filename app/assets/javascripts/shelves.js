@@ -13,7 +13,6 @@ function carouselInit(selector) {
 
 $(document).on('ready page:load', function(){
 	$('.closeModalSubmit').on("click", function(){
-		console.log("<%= book.id %>");
 		});
 	carouselInit(".owl-carousel")
 

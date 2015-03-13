@@ -1,7 +1,6 @@
 class ShelvesController < ApplicationController
   def index
     @shelves = current_user.shelves
- 
   end
 
   def new
@@ -15,10 +14,10 @@ class ShelvesController < ApplicationController
     respond_to do |format|
       if @shelf.save
         format.html { redirect_to shelves_path, notice: 'Your new Shelf is created!' }
-        format.js {} # This will look for app/views/shelves/create.js.erb
+        format.js {} 
       else
         format.html { render shelves_url, alert: "Oups! An error has occured, please retry to create your shelf.."}
-        format.js {} # This will look for app/views/shelves/create.js.erb
+        format.js {} 
       end
     end  
   end
@@ -45,7 +44,11 @@ class ShelvesController < ApplicationController
   def destroy
     @shelf = current_shelves.find params[:id]
     @shelf.destroy
-    redirect_to shelves_path, notice: 'Shelf deleted'
+
+    respond_to do |format|
+      format.js { render :layout => false }
+      format.html { redirect_to shelves_path, notice: 'Shelf deleted' }
+    end 
   end
 
   private

@@ -12,7 +12,6 @@ before_filter :load_shelf
   end
 
   def create
-
     @book = @shelf.books.build(book_params)
     @book.shelf = @shelf
 
@@ -39,6 +38,7 @@ before_filter :load_shelf
 
   def update
     @book = Book.find(params[:id])
+    
     respond_to do |format|
       if @book.update_attributes(book_params)
         format.html {redirect_to shelves_path}
@@ -50,7 +50,12 @@ before_filter :load_shelf
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to shelves_path
+    
+    respond_to do |format|
+      format.html { redirect_to shelves_path, notice: 'book deleted' }
+      format.js { render :layout => false }
+    end 
+    
   end
 
   private
@@ -60,6 +65,5 @@ before_filter :load_shelf
     
   def load_shelf
     @shelf = current_shelves.find(params[:shelf_id])
-    # binding.pry
   end
 end

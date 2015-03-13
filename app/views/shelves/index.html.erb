@@ -1,8 +1,12 @@
 <div class="row">
-	<h1><%=current_user.first_name.capitalize %>'s BookShelf</h1>
+	<h2>Hey, <%=current_user.first_name.capitalize %></h2>
+	<h4>welcome to your bookshelf</h4>
+	</br>
 	<div class="shelf-list">
-	<%= render @shelves if @shelves %>
+		<%= render @shelves if @shelves %>
 	</div>
+	</br>
+	</br>
 	<div class='row'>
 		<h3>Add a new shelf: </h3>
 	</div>

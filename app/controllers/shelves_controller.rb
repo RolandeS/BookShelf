@@ -41,6 +41,18 @@ class ShelvesController < ApplicationController
     end
   end
 
+  def add_demo_shelves
+    respond_to do |format|
+        if request.xhr?
+          format.js
+          @shelves = Shelf.find(params[:shelf_ids])
+          @shelves.each do |shelf|
+            shelf.copy_to(current_user)
+          end
+        end
+    end
+  end
+
   def destroy
     @shelf = current_shelves.find params[:id]
     @shelf.destroy

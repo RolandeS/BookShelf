@@ -5,13 +5,19 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # def current_shelf
-  # 	@current_shelf ||= Shelf.find(user[:user_id]) if user[:user_id]
-  # end
-
   def current_shelves
   	current_user.shelves
   end
 
+  def demo_user
+    User.where('email LIKE ?',"demo.user%").first
+  end
+
+  def demo_shelves
+    demo_user.shelves
+  end
+
   helper_method :current_shelves
+  helper_method :demo_user
+  helper_method :demo_shelves
 end

@@ -1,4 +1,8 @@
 class StartController < ApplicationController
-  def index
-  end
+
+	# before_filter :load_shelf
+	
+	  def index
+	  	@shelves = demo_shelves
+	  end
 end

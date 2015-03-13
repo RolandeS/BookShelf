@@ -9,4 +9,10 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   validates :email, uniqueness: true
+
+	def copy_all_shelves_to(user)
+		shelves.each do |shelf|
+			shelf.copy_to(user)
+		end
+	end
 end

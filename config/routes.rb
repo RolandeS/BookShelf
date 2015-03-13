@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :books
   end
 
+  post 'shelves/add_demo_shelves'
+
   resources :user_sessions, only: [:new, :create, :destroy]
 
   get 'login' => 'user_sessions#new', :as => :login

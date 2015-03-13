@@ -13,5 +13,15 @@ class ApplicationController < ActionController::Base
   	current_user.shelves
   end
 
+  def demo_user
+    User.where('email LIKE ?',"demo.user%").first
+  end
+
+  def demo_shelves
+    demo_user.shelves
+  end
+
   helper_method :current_shelves
+  helper_method :demo_user
+  helper_method :demo_shelves
 end

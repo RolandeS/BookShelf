@@ -1,2 +1,24 @@
-<h1>Start#index</h1>
-<p>Find me in app/views/start/index.html.erb</p>
+<h1>Get Started</h1>
+<p>Yeeey</p>
+
+<% @shelves.each do |shelf| %>
+	<div class="shelfStart" id="<%= shelf.id %>">
+	<h4><%= shelf.name %> BookShelf</h4>
+
+		<p>Books:</p>
+		<% if shelf.books.any? %>
+			
+			<% shelf.books.each do |book| %>
+			<%= book.name %> </br>
+				Book Link: <%= book.link %> </br>
+				Note: <%= book.note %> </br>
+				</br>
+			<% end %>
+		
+		<% end %>
+	</div>
+<% end %>
+
+<button id="userShelves">
+	Save and Move to your very own BookShelf
+</button>

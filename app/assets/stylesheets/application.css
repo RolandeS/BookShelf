@@ -35,6 +35,7 @@ body {
 .owl-item .item {
   height:200px;
   padding:0px 10px;
+  margin-top: 20px;
 }
 
 .bookInfo {
@@ -45,13 +46,10 @@ body {
 
 a.button.right.addshelf {
   margin-right: 5%;
-  margin-top:-20px;
+  margin-top:0px;
 }
 
-.detailsLink {
-  cursor:pointer;
-}
-
+.detailsLink, .bookclose { cursor:pointer; }
 
 .bookInfo.item.start {
   height: 200px;
@@ -60,16 +58,21 @@ a.button.right.addshelf {
   width: 93%;
 }
 
-.owl-theme .owl-controls .owl-buttons div {
-  position: absolute;
-}
+.owl-theme .owl-controls .owl-buttons div { position: absolute; }
  
 .owl-theme .owl-controls .owl-buttons .owl-prev{
   left: -45px;
-  top: 55px; 
+  top: 75px; 
 }
  
 .owl-theme .owl-controls .owl-buttons .owl-next{
   right: -45px;
-  top: 55px;
+  top: 75px;
+}
+
+.front, .back { height:75px; }
+
+.back { 
+  border:solid 1px black; 
+  padding:20px;
 }

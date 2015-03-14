@@ -15,8 +15,7 @@
 //= require foundation
 //= require turbolinks
 //= require owl.carousel
+//= require jquery.flip
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
-
-

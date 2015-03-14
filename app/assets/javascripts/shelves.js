@@ -14,8 +14,8 @@ function carouselInit(selector) {
 $(document).on('ready page:load', function(){
 	$('.closeModalSubmit').on("click", function(){
 		});
-	carouselInit(".owl-carousel")
-
+	
+	carouselInit(".owl-carousel");
 	
 });
 

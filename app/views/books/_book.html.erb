@@ -1,38 +1,53 @@
 <div id="book-<%= book.id %>" class="item">
-	<div class="bookInfo">
-		<%= link_to book.name.upcase, "http://"+book.link, :target => "_blank" %> </br>
-		<%= book.read %></br>
-		<p class="note"><%= book.note%></p>
+	
+	<div class="cardFor-<%= book.id %>"> 
 		
-		<div id="book_<%= book.id %>" class="reveal-modal" data-reveal>
-			<div id="modal-edit-book-fields">
-				<% shelf = book.shelf %>
-				<h3>Edit Book</h3>
-				<%= form_for([shelf, book], :remote => true) do |f| %>
-					<div class="field">
-						<%= f.label :name %>
-						<%= f.text_field :name %>
+		<div class="front"> 
+			<div class="bookInfo">
+				<%= link_to book.name.upcase, "http://"+book.link, :target => "_blank" %> </br>
+				<%= book.read %></br>
+				
+				<div id="book_<%= book.id %>" class="reveal-modal" data-reveal>
+					<div id="modal-edit-book-fields">
+						<% shelf = book.shelf %>
+						<h3>Edit Book</h3>
+						<%= form_for([shelf, book], :remote => true) do |f| %>
+							<div class="field">
+								<%= f.label :name %>
+								<%= f.text_field :name %>
+							</div>
+							<div class="field">
+								<%= f.label :link %>
+								<%= f.text_field :link %>
+							</div>
+							<div class="field">
+								<%= f.label :note %>
+								<%= f.text_field :note %>
+							</div>
+							<div class="description">
+								<%= f.label :read, "Already looked at this page?" %>
+								<%= f.radio_button :read, 'Read' %> Read
+								<%= f.radio_button :read, 'Revisit' %> Revisit Later </br>
+							</div>
+							<div class="actions">
+								<%= f.submit :submit, class: 'button closeModalSubmit' %>
+							</div>
+						<% end %>
+						<a class="close-reveal-modal">&#215;</a>	
 					</div>
-					<div class="field">
-						<%= f.label :link %>
-						<%= f.text_field :link %>
-					</div>
-					<div class="field">
-						<%= f.label :note %>
-						<%= f.text_field :note %>
-					</div>
-					<div class="description">
-						<%= f.label :read, "Already looked at this page?" %>
-						<%= f.radio_button :read, 'Read' %> Read
-						<%= f.radio_button :read, 'Revisit' %> Revisit Later </br>
-					</div>
-					<div class="actions">
-						<%= f.submit :submit, class: 'button closeModalSubmit' %>
-					</div>
-				<% end %>
-				<a class="close-reveal-modal">&#215;</a>	
+				</div>
 			</div>
 		</div>
+		
+		<div class="back">
+			<span class="closedetailsFor-<%= book.id %> bookclose right">X</span></br>
+			<% if book.note != "" %>
+		    <%= book.note %>
+		    <% else %>
+		    Looks like you don't have any notes for this book!
+		    <% end %>
+		 </div> 
+	
 	</div>
 
 	<a href="#" data-reveal-id="book_<%= book.id %>" class="btn btn-mini">Edit</a> | 
@@ -40,3 +55,19 @@
 	| <span class="detailsLink">Details</span>
 
 </div>
+
+<script>
+	$(document).on('ready page:load', function(){
+	  $(".cardFor-<%= book.id %>").flip({
+	    trigger: 'manual'
+	  });
+
+	  $('#book-<%= book.id %> .detailsLink').click(function(){
+	    $(".cardFor-<%= book.id %>").flip(true);
+	  });
+	  
+	  $('.closedetailsFor-<%= book.id %>').click(function(){
+	    $(".cardFor-<%= book.id %>").flip(false);
+	  });
+	});
+</script>

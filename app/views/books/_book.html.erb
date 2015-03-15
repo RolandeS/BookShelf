@@ -55,19 +55,24 @@
 	| <span class="detailsLink">Details</span>
 
 </div>
-
 <script>
 	$(document).on('ready page:load', function(){
-	  $(".cardFor-<%= book.id %>").flip({
-	    trigger: 'manual'
-	  });
 
-	  $('#book-<%= book.id %> .detailsLink').click(function(){
-	    $(".cardFor-<%= book.id %>").flip(true);
-	  });
+		function noteFlip(){
+			$(".cardFor-<%= book.id %>").flip({
+	    trigger: 'manual'
+		  });
+
+		  $('#book-<%= book.id %> .detailsLink').click(function(){
+		    $(".cardFor-<%= book.id %>").flip(true);
+		  });
+		  
+		  $('.closedetailsFor-<%= book.id %>').click(function(){
+		    $(".cardFor-<%= book.id %>").flip(false);
+		  });
+		}
+
+		noteFlip();
 	  
-	  $('.closedetailsFor-<%= book.id %>').click(function(){
-	    $(".cardFor-<%= book.id %>").flip(false);
-	  });
 	});
 </script>

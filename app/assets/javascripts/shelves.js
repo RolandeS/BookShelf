@@ -2,7 +2,7 @@ function carouselInit(selector) {
 	elems = $(selector)
 
 	elems.owlCarousel({
-		items : 4,
+		items : 2,
 		navigation : true, 
 		navigationText : ["<",">"],
 		pagination : false,

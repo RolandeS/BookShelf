@@ -1,6 +1,9 @@
 class ShelvesController < ApplicationController
+  
+
   def index
     @shelves = current_user.shelves
+    # @book = Book.find(params[:id])
   end
 
   def new

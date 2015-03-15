@@ -1,9 +1,10 @@
+<div class="row">
 <h1>Get Started!</h1>
 
 <% @shelves.each do |shelf| %>
-	<div class="shelfStart" id="<%= shelf.id %>">
+	<div class="shelfStart large-6 columns" id="<%= shelf.id %>">
 	<h4><%= shelf.name %> BookShelf</h4>
-</br>
+	</br>
 
 				<% if shelf.books.any? %>
 					
@@ -24,6 +25,7 @@
 <button id="userShelves">
 	Save and Move to your very own BookShelf
 </button>
+</div>
 
 <!--
 # <%= form_tag '/shelves/add_demo_shelves' do %>

@@ -1,2 +1,14 @@
 $('#book-<%= @book.id %>').replaceWith("<%= j(render(:partial => "books/book", locals: { shelf: @shelf, book: @book}))%>");
 $('.reveal-modal-bg').foundation('reveal', 'close');
+
+$(".cardFor-<%= @book.id %>").flip({
+  trigger: 'manual'
+});
+
+$('#book-<%= @book.id %> .detailsLink').click(function(){
+  $(".cardFor-<%= @book.id %>").flip(true);
+});
+
+$('.closedetailsFor-<%= @book.id %>').click(function(){
+  $(".cardFor-<%= @book.id %>").flip(false);
+});

@@ -85,17 +85,19 @@ $include-html-global-classes: $include-html-classes;
 
 // c. Global
 // - - - - - - - - - - - - - - - - - - - - - - - - -
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300);
 
 // We use these to define default font stacks
+$font-family-sans-serif: 'Roboto', sans-serif;
 // $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 // $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 // $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 
 // We use these to define default font weights
-// $font-weight-normal: normal !default;
+$font-weight-normal: 100;
 // $font-weight-bold: bold !default;
 
-// $white       : #FFFFFF;
+   $white       : #FFFFFF;
 // $ghost       : #FAFAFA;
 // $snow        : #F9F9F9;
 // $vapor       : #F6F6F6;
@@ -848,7 +850,7 @@ $include-html-global-classes: $include-html-classes;
 // $off-canvas-back-hover-border-bottom: none;
 
 // Off Canvas Menu Icon Variables
-// $tabbar-menu-icon-color: $white;
+ $tabbar-menu-icon-color: #ccc;
 // $tabbar-menu-icon-hover: scale-color($tabbar-menu-icon-color, $lightness: -30%);
 
 // $tabbar-menu-icon-text-indent: rem-calc(35);
@@ -1364,7 +1366,7 @@ $include-html-global-classes: $include-html-classes;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $oil;
+ $topbar-bg-color: $white;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1386,16 +1388,16 @@ $include-html-global-classes: $include-html-classes;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: $white;
-// $topbar-link-color-hover: $white;
+ $topbar-link-color: #ccc;
+ $topbar-link-color-hover: #ccc;
 // $topbar-link-color-active: $white;
 // $topbar-link-color-active-hover: $white;
 // $topbar-link-weight: $font-weight-normal;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
-// $topbar-link-bg-color-hover: $charcoal;
-// $topbar-link-bg-hover: $oil;
+ $topbar-link-bg-color-hover: $white;
+ $topbar-link-bg-hover: $white;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;

@@ -1,5 +1,6 @@
-<div class="row">
-	<h1>Login!</h1>
+<div class="wrapper">
+<div class="loginPage row">
+	<h1><span>Login!</span></h1>
 	<%= form_tag user_sessions_path, :method => :post do %>
 		<div class="field">
 			<%= label_tag :email %>
@@ -10,7 +11,8 @@
 			<%= password_field_tag :password %>
 		</div>
 		<div class="actions">
-			<%= submit_tag "Login", class: 'button'%>	
+			<%= submit_tag "LOGIN", class: 'button'%>	
 		</div>
 	<% end %>
-</row>
+</div>
+</div>

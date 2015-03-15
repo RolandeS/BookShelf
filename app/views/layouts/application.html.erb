@@ -13,24 +13,42 @@
   </head>
 
   <body>
-    <div class='row'>
-      <p id="notice"><%= flash[:notice] %></p>
-      <p id="alert"><%= flash[:alert] %></p>
-    </div>
+  
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="/">BookShelf</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>MENU</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="left">
+        <% if current_user %>
+          <li><a href="/shelves"> My BookShelf</a></li>
+        <% end %>
+      </ul>
+      <ul class="right">
+        <% if current_user %>
+            <li><a href="#">Signed in as <%= current_user.first_name.capitalize %>.</a></li>
+          <li><%= link_to 'Logout', :logout, method: :post %></li>
+        <% else %>
+          <li><%= link_to 'Register', new_user_path %></li>
+          <li><%= link_to 'Login', :login %></li>
+        <% end %>
+      </ul>
+    </section>
+  </nav>
+  
+<!--   <div>
+    <p id="notice"><%= flash[:notice] %></p>
+    <p id="alert"><%= flash[:alert] %></p>
+  </div> -->
 
     <%= yield %>
-
-    <div class="row">
-    <p class="userinfo">
-     <% if current_user %>
-       Signed in as <%= current_user.first_name.capitalize %>. <%= link_to "Log out", :logout, method: :post %>
-     <% else %>
-       <%= link_to "Log in", new_user_session_path %> or <%= link_to "Sign up", new_user_path %>
-     <% end %>
-    </p>
-  </div>
-
-
+  <!-- <footer>
+    © BookShelf 2015
+  </footer> -->
   </body>
 </html>
 

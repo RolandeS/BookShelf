@@ -11,7 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
- *= require foundation
+
  *= require foundation_and_overrides
  *= require owl.carousel
  *= require owl.theme
@@ -24,7 +24,7 @@
 body {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
-  padding:20px 30px;
+  padding:0px 0px;
 }
 
 .owl-carousel.owl-theme { 
@@ -82,5 +82,21 @@ h3, #userShelves {clear:both;}
 #userShelves {display: block; margin: 0 auto;}
 
 .large-6 {padding:0px 30px;}
-
 .shelfStart {height:320px;}
+
+
+.top-bar, .top-bar-section li:not(.has-form) a:not(.button) {
+  text-transform: uppercase;
+}
+
+.top-bar {border-bottom:solid 1px #ccc; height: 50px; }
+
+/*
+.top-bar .name h1 a {color:#ccc;}*/
+
+
+
+
+
+
+

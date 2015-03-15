@@ -1,7 +1,10 @@
-<h1>BookShelf Homepage!</h1>
+<div class="wrapper">
+<div class="homepage row">
+<h3><span>bookshelf</span> helps you stay organized with pages you visit the most or want to save for later.<h3>
+	<h4>Create shelves to categorize your links with notes and store them. Search through your books for quick access to your saved links!</h4>
 
 
-<h4>Sign Up!</h4>
+<h5>GET STARTED and <span class="small">register!</span></h5>
 <%= form_for @user do |f| %>
 	<% if @user.errors.any? %>
 		<div id="error_explanation">
@@ -38,6 +41,9 @@
 		<%= f.password_field :password_confirmation %>
 	</div>
 	<div class="actions">
-		<%= f.submit "Sign Me Up!", class: "button"%>
+		<%= f.submit "SIGN ME UP!", class: "button"%>
 	</div>
 <% end %>
+
+</div>
+</div>

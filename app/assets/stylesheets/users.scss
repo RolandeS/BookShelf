@@ -1,3 +1,85 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@import url(http://fonts.googleapis.com/css?family=Cantata+One);
+
+.wrapper {
+  background: #ccc;
+  background: url("homepage_alt4.jpg") no-repeat center center fixed;
+  padding:50px;
+}
+
+.homepage h3, .homepage h4, .homepage h5 {
+  text-align: center;
+  width:60%;
+  margin:0 auto;
+}
+
+.homepage h3 {margin-top:60px;}
+
+.homepage h4 {
+  margin-top: -25px;
+  font-size: 16pt;
+  margin-bottom: 20px;
+}
+
+.homepage form, .loginPage form {
+  width:50%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top:40px;
+}
+
+.homepage, .loginPage {
+  background-color:rgba(255,255,255,0.8);
+  margin-top:50px;
+  margin-bottom:50px;
+}
+
+.homepage span, .loginPage h1 span {
+  font-family: 'Cantata One', serif;
+  font-size: 28pt;
+}
+
+.homepage .small {font-size: 14pt;}
+
+.loginPage h1 span {
+  display: block; 
+  text-align: center;
+  margin-top:50px;
+}
+
+.homepage .button, .loginPage .button {
+  background-color: #84cfd5;
+  font-weight: 300;
+  margin-bottom:50px;
+}
+
+.top-bar .toggle-topbar.menu-icon a {
+  color:#ccc;
+}
+
+.top-bar .toggle-topbar.menu-icon a span::after {
+    box-shadow: 0 0 0 1px #CCC, 0 7px 0 1px #CCC, 0 14px 0 1px #CCC;
+}
+
+.top-bar-section ul li {
+  background-color:#fff ;
+  text-align: right;
+  padding-right:20px;
+}
+
+@media screen and (max-width: 640px) {
+  .top-bar-section ul li {
+    border-bottom: solid 1px #ccc;
+  }
+}
+
+
+
+/*footer {
+  padding:10px;
+  text-align: center;
+}*/

@@ -94,9 +94,11 @@ h3, #userShelves {clear:both;}
 }
 
 [class*="column"] + [class*="column"]:last-child {
-  float: left;
-  /*clear: both;*/
+ /* float: left;
+  clear: both;*/
 }
+
+.large-6 {height:360px;}
 
 
 .top-bar, .top-bar-section li:not(.has-form) a:not(.button) {

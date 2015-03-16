@@ -1,5 +1,7 @@
 class ShelvesController < ApplicationController
-  
+
+  before_filter :ensure_logged_in
+
   def index
     @shelves = current_user.shelves
   end
@@ -20,7 +22,7 @@ class ShelvesController < ApplicationController
         format.html { render shelves_url, alert: "Oups! An error has occured, please retry to create your shelf.."}
         format.js {} 
       end
-    end  
+    end 
   end
 
   def show
@@ -68,5 +70,4 @@ class ShelvesController < ApplicationController
   def shelf_params
     params.require(:shelf).permit(:name)    
   end
-
 end

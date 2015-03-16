@@ -1,3 +1,10 @@
-$(".shelf-list").append("<%= j(render @shelf) %>");
-$('.reveal-modal-bg').foundation('reveal', 'close');
-$('input#shelf_name').last().val("");
+<% if @shelf.errors.any? %>
+  $("#errors").hide()
+  $("#errors").html("<%= j(render partial: "errors", locals: {object: @shelf}) %>")
+  $("#errors").fadeIn().delay(2300).fadeOut();
+  $('input#shelf_name').last().val("");
+<% else %>
+  $(".shelf-list").append("<%= j(render @shelf) %>");
+  $('.reveal-modal-bg').foundation('reveal', 'close');
+  $('input#shelf_name').last().val("");
+<% end %>

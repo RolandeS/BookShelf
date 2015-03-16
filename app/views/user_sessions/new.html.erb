@@ -1,18 +1,22 @@
 <div class="wrapper">
-<div class="loginPage row">
-	<h1><span>Login!</span></h1>
-	<%= form_tag user_sessions_path, :method => :post do %>
-		<div class="field">
-			<%= label_tag :email %>
-			<%= text_field_tag :email %>
-		</div>
-		<div class="field">
-			<%= label_tag :password %>
-			<%= password_field_tag :password %>
-		</div>
-		<div class="actions">
-			<%= submit_tag "LOGIN", class: 'button'%>	
-		</div>
-	<% end %>
+	<div class="loginPage row">
+		<h1><span>Login!</span></h1>
+		<%= form_tag user_sessions_path, :method => :post do %>
+			<div class="field">
+				<%= label_tag :email %>
+				<%= text_field_tag :email %>
+			</div>
+			<div class="field">
+				<%= label_tag :password %>
+				<%= password_field_tag :password %>
+			</div>
+			<div class="actions">
+				<%= submit_tag "LOGIN", class: 'button'%>	
+			</div>
+		<% end %>
+
+		<h5>New User? <%=link_to 'Register here', new_user_path%></h5>
+	</div>
 </div>
-</div>
+
+

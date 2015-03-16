@@ -60,7 +60,7 @@ before_filter :load_shelf
 
   private
   def book_params
-    params.require(:book).permit(:name, :link, :note, :read, :shelf_id)
+    params.require(:book).permit(:name, :link, :note, :read, :shelf_id, :icon)
   end
     
   def load_shelf

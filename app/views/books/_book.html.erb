@@ -1,57 +1,68 @@
+
 <div id="book-<%= book.id %> book" class="item">
-	
+	<!-- group of stuff in book end -->
 	<div class="cardFor-<%= book.id %> card"> 
 		
-		<div class="front"> 
-			<div class="bookInfo">
-				<%= link_to book.name.upcase, "http://"+book.link, :target => "_blank" %> </br>
-				<%= book.read %></br>
-				
-				<div id="book_<%= book.id %>" class="reveal-modal" data-reveal>
-					<div id="modal-edit-book-fields">
-						<% shelf = book.shelf %>
-						<h3>Edit Book</h3>
-						<%= form_for([shelf, book], :remote => true) do |f| %>
-							<div class="field">
-								<%= f.label :name %>
-								<%= f.text_field :name %>
-							</div>
-							<div class="field">
-								<%= f.label :link %>
-								<%= f.text_field :link %>
-							</div>
-							<div class="field">
-								<%= f.label :note %>
-								<%= f.text_field :note %>
-							</div>
-							<div class="description">
-								<%= f.label :read, "Already looked at this page?" %>
-								<%= f.radio_button :read, 'Read' %> Read
-								<%= f.radio_button :read, 'Revisit' %> Revisit Later </br>
-							</div>
-							<div class="actions">
-								<%= f.submit :submit, class: 'button closeModalSubmit' %>
-							</div>
-						<% end %>
-						<a class="close-reveal-modal">&#215;</a>	
+			
+			<!-- Front of the book -->
+			<div class="front"> 
+				<div class="bookInfo">
+					<%= link_to book.name.upcase, "http://"+book.link, :target => "_blank" %> </br>
+					<img src="http://www.google.com/s2/favicons?domain_url=<%=book.link%>" alt="Icon">
+					<%= book.read %></br>
+					
+					<!-- Edit form  -->
+					<div id="book_<%= book.id %>" class="reveal-modal" data-reveal>
+						<div id="modal-edit-book-fields">
+							<% shelf = book.shelf %>
+							<h3>Edit Book</h3>
+							<%= form_for([shelf, book], :remote => true) do |f| %>
+									<div class="field">
+										<%= f.label :name %>
+										<%= f.text_field :name %>
+									</div>
+									<div class="field">
+										<%= f.label :link %>
+										<%= f.text_field :link %>
+									</div>
+									<div class="field">
+										<%= f.label :note %>
+										<%= f.text_field :note %>
+									</div>
+									<div class="description">
+										<%= f.label :read, "Already looked at this page?" %>
+										<%= f.radio_button :read, 'Read' %> Read
+										<%= f.radio_button :read, 'Revisit' %> Revisit Later </br>
+									</div>
+									<div class="actions">
+										<%= f.submit :submit, class: 'button closeModalSubmit' %>
+									</div>
+							<% end %>
+							<a class="close-reveal-modal">&#215;</a>	
+						</div>
 					</div>
+					<!-- Edit form end  -->
+
 				</div>
 			</div>
-		</div>
+			<!-- Front of the book -->
+
+
+			<!-- Back of the Book  -->
+			<div class="back">
+				<span class="closedetailsFor-<%= book.id %> bookclose right">X</span></br>
+				<% if book.note != "" %>
+			    <%= book.note %>
+			    <% else %>
+			    Looks like you don't have any notes for this book!
+			    <% end %>
+			 </div> 
+			<!-- Back of the Book End -->
 		
-		<div class="back">
-			<span class="closedetailsFor-<%= book.id %> bookclose right">X</span></br>
-			<% if book.note != "" %>
-		    <%= book.note %>
-		    <% else %>
-		    Looks like you don't have any notes for this book!
-		    <% end %>
-		 </div> 
-	
 	</div>
+	<!-- group of stuff in book end -->
 
 	<a href="#" data-reveal-id="book_<%= book.id %>" class="btn btn-mini">Edit</a> | 
 	<%= link_to "Delete", shelf_book_path(book.shelf_id, book), data: {confirm: "Are you sure you want to delete this book?"}, :method => :delete, :remote => true, :class => "delete_book" %>
 	| <span class="detailsLink">Details</span>
-
 </div>

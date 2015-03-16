@@ -17,6 +17,14 @@ class ApplicationController < ActionController::Base
     demo_user.shelves
   end
 
+  def ensure_logged_in
+    if !current_user
+      flash[:alert] = "Please Login!"
+      redirect_to login_path
+    end
+  end
+
+  helper_method :ensure_logged_in
   helper_method :current_shelves
   helper_method :demo_user
   helper_method :demo_shelves

@@ -7,6 +7,7 @@
 		<%= render @shelves if @shelves %>
 	</div>
 	</br>
+  <p id="errors"></p>
 	</br>
 	<div class='clearfix'>
 		</br>
@@ -20,10 +21,11 @@
 				<%= f.text_field :name, :placeholder => "Name" %>
 			</div>
 
-			<div class="actions">
+			<div class="actions saveShelf">
 				<%= f.submit :submit, class: 'button closeModalSubmit small' %>
 			</div>
 		<% end %>
 	</div>
 </div>
+
 

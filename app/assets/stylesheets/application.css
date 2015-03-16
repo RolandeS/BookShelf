@@ -82,7 +82,21 @@ h3, #userShelves {clear:both;}
 #userShelves {display: block; margin: 0 auto;}
 
 .large-6 {padding:0px 30px;}
+
 .shelfStart {height:320px;}
+
+.singleShelf {float:left;}
+
+.row .newshelf {
+  width:50%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+[class*="column"] + [class*="column"]:last-child {
+  float: left;
+  /*clear: both;*/
+}
 
 
 .top-bar, .top-bar-section li:not(.has-form) a:not(.button) {
@@ -91,12 +105,7 @@ h3, #userShelves {clear:both;}
 
 .top-bar {border-bottom:solid 1px #ccc; height: 50px; }
 
-/*
-.top-bar .name h1 a {color:#ccc;}*/
-
-
-
-
+.openall {margin-right:10px;}
 
 
 

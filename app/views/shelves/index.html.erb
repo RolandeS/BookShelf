@@ -8,19 +8,22 @@
 	</div>
 	</br>
 	</br>
-	<div class='row clearfix'>
-		<h3>Add a new shelf: </h3>
+	<div class='clearfix'>
+		</br>
+	</br>
 	</div>
-	<div class='row'>
+	<div class='row newshelf'>
+		<h5>Add a new shelf: </h5>
 		<%= form_for Shelf.new, :remote => true do |f| %>
 			<div class="field">
-				<%= f.label :name %>
-				<%= f.text_field :name %>
+				
+				<%= f.text_field :name, :placeholder => "Name" %>
 			</div>
 
 			<div class="actions">
-				<%= f.submit :submit, class: 'button closeModalSubmit' %>
+				<%= f.submit :submit, class: 'button closeModalSubmit small' %>
 			</div>
 		<% end %>
 	</div>
 </div>
+

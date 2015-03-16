@@ -25,7 +25,7 @@
     <section class="top-bar-section">
       <ul class="left">
         <% if current_user %>
-          <li><a href="/shelves"> My BookShelf</a></li>
+          <li><%= link_to 'My BookShelf', :mybookshelf %></li>
         <% end %>
       </ul>
       <ul class="right">

@@ -1,5 +1,6 @@
 $("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
 carouselInit("#shelf-<%= @shelf.id %> .owl-carousel")
+flipInit(".card");
 $('.reveal-modal-bg').foundation('reveal', 'close');
-noteflip();
+
 

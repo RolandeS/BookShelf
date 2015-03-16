@@ -33,7 +33,7 @@ $( document ).ready(function() {
 		    dataType: "script",
 		    type: 'POST'
 		  }).done(function(){
-		  	window.location = "/shelves";
+		  	window.location = "/mybookshelf";
 		  });
 		});
 });

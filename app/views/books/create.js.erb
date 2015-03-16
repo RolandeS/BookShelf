@@ -1,4 +1,5 @@
 $("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
+
 var carousel = $("#shelf-<%= @shelf.id %> .owl-carousel")
 
 carousel.owlCarousel({
@@ -13,6 +14,7 @@ carousel.owlCarousel({
 $('.open form')[0].reset();
 
 $('.reveal-modal-bg').foundation('reveal', 'close');
+flipInit(".card");
 
 var owl = carousel.data('owlCarousel');
-owl.goTo(<%= @shelf.books.count %>)
+owl.goTo(<%= @shelf.books.count %>);

@@ -1,4 +1,4 @@
-<div id="shelf-<%=shelf.id%>" class="large-6 columns">
+<div id="shelf-<%=shelf.id%>" class="large-6 columns singleShelf">
 	<h4><%= shelf.name %> </h4>
 
 	<a href="#" data-reveal-id="shelf_<%= shelf.id %>" class="btn btn-mini">Edit</a> | 
@@ -28,9 +28,10 @@
 					<%= render shelf.books, locals: {shelf: @shelf, book: @book} %>
 				</div>
 		<% end %>
-		<a href="#" data-reveal-id="addBookModal_<%= shelf.id %>" class="button right addshelf">+</a>
+		<a href="#" data-reveal-id="addBookModal_<%= shelf.id %>" class="button right addshelf tiny">+</a>
 		<div id="addBookModal_<%= shelf.id %>" class="reveal-modal" data-reveal>
 			<%= render partial: '/books/form', locals: {shelf: shelf, book: Book.new} %>
 		</div>
+		<!-- <div class="button right openall tiny">Open All Books</div> -->
 	</div>
 </div>

@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
+// removed turbolinks here
 //= require owl.carousel
 //= require jquery.flip
 //= require_tree .

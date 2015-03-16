@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   resources :user_sessions, only: [:new, :create, :destroy]
 
+  get 'mybookshelf' => 'shelves#index', :as => :mybookshelf
+  get 'getstarted' => 'start#index', :as => :getstarted
+
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 

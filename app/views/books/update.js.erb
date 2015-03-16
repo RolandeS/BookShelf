@@ -1,14 +1,5 @@
-$('#book-<%= @book.id %>').replaceWith("<%= j(render(:partial => "books/book", locals: { shelf: @shelf, book: @book}))%>");
+// $('#book').replaceWith("<%= j(render(:partial => "books/book", locals: { shelf: @shelf, book: @book}))%>");
+$("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
+carouselInit("#shelf-<%= @shelf.id %> .owl-carousel")
 $('.reveal-modal-bg').foundation('reveal', 'close');
-
-$(".cardFor-<%= @book.id %>").flip({
-  trigger: 'manual'
-});
-
-$('#book-<%= @book.id %> .detailsLink').click(function(){
-  $(".cardFor-<%= @book.id %>").flip(true);
-});
-
-$('.closedetailsFor-<%= @book.id %>').click(function(){
-  $(".cardFor-<%= @book.id %>").flip(false);
-});
+flipInit(".card");

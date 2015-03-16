@@ -9,7 +9,7 @@ before_filter :load_shelf
   	@user = User.new(user_params)
   	if @user.save
       auto_login(@user)
-  		redirect_to start_index_url, notice: "Awesome, you just signed up!"
+  		redirect_to :getstarted, notice: "Awesome, you just signed up!"
   	else
   		render :new
   	end

@@ -26,7 +26,7 @@ $( document ).ready(function() {
 
 	 $('#userShelves').click(function(){
 	 	var shelf_ids = selected();
-
+    if(selected().length>0){
 		  $.ajax({
 		    url: "/shelves/add_demo_shelves",
 		    data: {'shelf_ids': selected()},
@@ -35,5 +35,10 @@ $( document ).ready(function() {
 		  }).done(function(){
 		  	window.location = "/shelves";
 		  });
+    } else {
+      window.location = "/shelves";
+    }
+
+
 		});
 });

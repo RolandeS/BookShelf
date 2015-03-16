@@ -11,7 +11,6 @@ function carouselInit(selector) {
 	});
 }
 
-
 function flipInit(selector){
 	$(selector).flip({
     trigger: 'manual'
@@ -23,18 +22,14 @@ function flipInit(selector){
   
   $(".bookclose").click(function(){
   	$(this).parents(".card").flip(false)
-    // $(cardForbookId).closest(closeForbookId).flip(false);
   });
 }
 
-
 $(document).on('ready page:load', function(){
 	$('.closeModalSubmit').on("click", function(){
-	
 	});
 	
 	carouselInit(".owl-carousel");
 	flipInit(".card");
 
 });
-

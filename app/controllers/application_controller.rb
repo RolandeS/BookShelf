@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :logged_in?
+  helper_method :ensure_logged_in
   helper_method :current_shelves
   helper_method :demo_user
   helper_method :demo_shelves

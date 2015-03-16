@@ -1,8 +1,6 @@
 class BooksController < ApplicationController
 
 before_filter :load_shelf
-# require 'uri'
-# require 'open-uri'
 
   def index
      @book = Book.all
@@ -15,14 +13,6 @@ before_filter :load_shelf
 
   def create
     @book = @shelf.books.build(book_params)
-    # @icon = @book.fetch_icon(params[:link])
-    # p params[:link]
-    # uri = URI.parse("http://www.facebook.com")
-    # uri.path = "/favicon.ico"
-    # p uri
-
-    # @data = open(uri).read
-    # p data
     @book.shelf = @shelf
 
     respond_to do |format|

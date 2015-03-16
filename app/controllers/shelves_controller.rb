@@ -1,4 +1,6 @@
 class ShelvesController < ApplicationController
+  before_filter :ensure_logged_in
+
   def index
     @shelves = current_user.shelves
   end
@@ -11,6 +13,13 @@ class ShelvesController < ApplicationController
     @shelf = Shelf.new(shelf_params)
     @shelf.user_id = current_user.id
 
+    # if (current_shelves.where("LOWER(name) LIKE LOWER (?)", "%#{params[:name]}%"))
+    #   p "They are equal"
+    #   @msg = "Oups!!! You already have a shelf with this name."
+    #   flash.now[:notice] = 'Oups! You already have a shelf with this name.'
+    # else @msg = "you're cool"
+    # end
+
     respond_to do |format|
       if @shelf.save
         format.html { redirect_to shelves_path, notice: 'Your new Shelf is created!' }
@@ -19,7 +28,7 @@ class ShelvesController < ApplicationController
         format.html { render shelves_url, alert: "Oups! An error has occured, please retry to create your shelf.."}
         format.js {} 
       end
-    end  
+    end 
   end
 
   def show
@@ -68,4 +77,9 @@ class ShelvesController < ApplicationController
     params.require(:shelf).permit(:name)    
   end
 
+  #  def duplicate(shelf)
+  #   current_user.shelves.each do |s|
+  #     s.name == shelf.name
+  #   end
+  # end
 end

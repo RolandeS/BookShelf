@@ -1,6 +1,7 @@
 <div id="book-<%= book.id %>" class="item">
 	<div class="bookInfo">
-		<%= link_to book.name.upcase, "http://"+book.link, :target => "_blank" %> </br>
+		<div class="url"><%= link_to book.name.upcase, "http://"+book.link, :target => "_blank" %> </div></br>
+		<img src="http://www.google.com/s2/favicons?domain_url=<%=book.link%>" alt="Icon">
 		<%= book.read %></br>
 		<p class="note"><%= book.note%></p>
 		

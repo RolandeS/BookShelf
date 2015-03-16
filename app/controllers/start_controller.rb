@@ -1,4 +1,5 @@
 class StartController < ApplicationController
+  before_filter :ensure_logged_in
 
 	# before_filter :load_shelf
 	

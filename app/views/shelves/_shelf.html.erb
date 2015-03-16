@@ -28,9 +28,16 @@
 					<%= render shelf.books, locals: {shelf: @shelf, book: @book} %>
 				</div>
 		<% end %>
+		
+		<!-- <a href="#" id="openAllBooksAt-<%= shelf.id %>" class="button right openAll">All</a> -->
+
 		<a href="#" data-reveal-id="addBookModal_<%= shelf.id %>" class="button right addshelf">+</a>
 		<div id="addBookModal_<%= shelf.id %>" class="reveal-modal" data-reveal>
 			<%= render partial: '/books/form', locals: {shelf: shelf, book: Book.new} %>
 		</div>
 	</div>
 </div>
+
+
+
+

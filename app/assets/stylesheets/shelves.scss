@@ -31,6 +31,8 @@ body {
   font-weight: 400;
   font-size: 18px;
   text-transform: uppercase;
+  margin-bottom: 0px;
+  margin-top:10px;
 
 }
 
@@ -39,13 +41,15 @@ body {
 }
 
 #bookOptions {
-  background: #f9f9f9;
+  /*background: #f9f9f9;*/
   padding: 5px;
   text-align: right;
+  opacity: 0.5;
+  /*margin-top:20px;*/
 }
 
 #bookOptions img {
-  width:15px;
+  width:12px;
   margin-right:10px;
 }
 
@@ -60,4 +64,9 @@ body {
 
 .reveal-modal, dialog {
   border:none;
+}
+
+.shelfTopBar {
+  border-top:solid 1px #ccc;
+  margin-bottom: -45px;
 }

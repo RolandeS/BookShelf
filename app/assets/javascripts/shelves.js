@@ -16,14 +16,19 @@ function flipInit(selector){
     trigger: 'manual'
   });
 
-  $(".detailsLink").click(function(){
-  	// $(this).parent().find(".card").flip(true);
-     $(this).parent().parent().children().find('.card').flip(true);
+  $(".detailsLink").on("click", function(e){
+    $(this).toggleClass('flipped');
+    if ($(this).hasClass("flipped")) {
+      $(this).parent().parent().children().find('.card').flip(true);
+      yolo = $(this).parent().parent().children().find('.back');
+        if (yolo.text().length > 40) {
+           $(this).parent().parent().children().find('.back').text(yolo.text().substr(0,40)+'...')
+        }
+    } else {
+      $(this).parent().parent().parent().find('.card').flip(false);
+    }
   });
   
-  $(".bookclose").click(function(){
-  	$(this).parents(".card").flip(false)
-  });
 }
 
 $(document).on('ready page:load', function(){

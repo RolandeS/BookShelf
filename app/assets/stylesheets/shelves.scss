@@ -6,3 +6,58 @@
 	background-color: #ccc;
 	color: white;
 }
+
+$background-main: #efefef;
+/*$button-color: #7ed0d6;*/
+
+.row {padding:0px 40px;}
+
+body {
+  /*background-color: #f9f9f9;*/
+  background-color: $background-main;
+}
+
+.front, .back, .bookInfo {background-color:#fff;}
+
+.bookInfo {cursor: pointer;}
+
+.singleShelf h4 {
+  width:30%;
+  /*padding:5px 15px;*/
+  /*background-color:#7ed0d6;*/
+  /*background-color: #F9F9F9;*/
+  /*color:#fff;*/
+  color:#222222;
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: uppercase;
+
+}
+
+.UserInfo {
+  padding:60px 0px;
+}
+
+#bookOptions {
+  background: #f9f9f9;
+  padding: 5px;
+  text-align: right;
+}
+
+#bookOptions img {
+  width:15px;
+  margin-right:10px;
+}
+
+.new_shelf input#shelf_name {
+  border:none;
+  outline:none;
+}
+
+.reveal-modal-bg {
+  display: none !important;
+}
+
+.reveal-modal, dialog {
+  border:none;
+}

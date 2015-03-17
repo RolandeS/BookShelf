@@ -28,7 +28,7 @@ body {
 }
 
 .owl-carousel.owl-theme { 
-  width:90%;
+  width:100%;
   margin:0 auto;
 }
 
@@ -39,7 +39,7 @@ body {
 }
 
 .bookInfo {
-  border:solid 1px black;
+  /*border:solid 1px black;*/
   padding:20px;
   height:150px;
 }
@@ -59,21 +59,28 @@ a.button.right.addshelf {
 }
 
 .owl-theme .owl-controls .owl-buttons div { position: absolute; }
- 
+
+.owl-theme .owl-controls .owl-buttons div{
+  color:#222222;
+  font-size: 26px;
+  font-weight: 400;
+  background: none;
+}
+
 .owl-theme .owl-controls .owl-buttons .owl-prev{
   left: -45px;
-  top: 75px; 
+  top: 65px; 
 }
  
 .owl-theme .owl-controls .owl-buttons .owl-next{
   right: -45px;
-  top: 75px;
+  top: 65px;
 }
 
 .front, .back { height:75px; }
 
 .back { 
-  border:solid 1px black; 
+  /*border:solid 1px black; */
   padding:20px;
 }
 

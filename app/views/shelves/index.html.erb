@@ -1,8 +1,9 @@
 <div class="row">
-	</br>
-	<h2>Hey, <%=current_user.first_name.capitalize %></h2>
-	<h4>welcome to your bookshelf</h4>
-	</br>
+	<div class="UserInfo">
+		<h2>Hey, <%=current_user.first_name.capitalize %></h2>
+		<h4>welcome to your bookshelf</h4>
+		<p class="right">Search will go here!</p>
+	</div>
 	<div class="shelf-list">
 		<%= render @shelves if @shelves %>
 	</div>
@@ -16,12 +17,11 @@
 		<h5>Add a new shelf: </h5>
 		<%= form_for Shelf.new, :remote => true do |f| %>
 			<div class="field">
-				
 				<%= f.text_field :name, :placeholder => "Name" %>
 			</div>
 
 			<div class="actions">
-				<%= f.submit :submit, class: 'button closeModalSubmit small' %>
+				<%= f.submit :submit, value: "Submit", class: 'button closeModalSubmit small' %>
 			</div>
 		<% end %>
 	</div>

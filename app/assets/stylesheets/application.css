@@ -25,6 +25,7 @@ body {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
   padding:0px 0px;
+
 }
 
 .owl-carousel.owl-theme { 
@@ -93,9 +94,14 @@ h3, #userShelves {clear:both;}
 .singleShelf {float:left;}
 
 .row .newshelf {
-  width:50%;
+  width:60%;
   text-align: center;
   margin: 0 auto;
+  /*margin-bottom:50px;*/
+}
+
+.postfix.button{
+  margin-bottom: 60px;
 }
 
 [class*="column"] + [class*="column"]:last-child {
@@ -114,5 +120,5 @@ h3, #userShelves {clear:both;}
 
 .openall {margin-right:10px;}
 
-
+*{  color:red;}
 

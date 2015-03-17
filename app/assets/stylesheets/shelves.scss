@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import url(http://fonts.googleapis.com/css?family=Cantata+One);
+
 .selected {
 	background-color: #ccc;
 	color: white;
@@ -10,11 +12,23 @@
 $background-main: #efefef;
 /*$button-color: #7ed0d6;*/
 
-.row {padding:0px 40px;}
+.wrapperShelf{
+  margin-top:100px;
+  margin-bottom: 100px;
+  padding:0px 40px;
+  background-color:rgba(244,244,239,0.8);
+
+}
+
+.wrapperShelf {
+  /*background-color:rgba(255,255,255,0.8);*/
+
+}
 
 body {
   /*background-color: #f9f9f9;*/
-  background-color: $background-main;
+  /*background-color: $background-main;*/
+  background: url("homepage_alt5.jpg") no-repeat center center fixed;
 }
 
 .front, .back, .bookInfo {background-color:#fff;}
@@ -26,13 +40,27 @@ body {
   /*padding:5px 15px;*/
   /*background-color:#7ed0d6;*/
   /*background-color: #F9F9F9;*/
-  /*color:#fff;*/
-  color:#222222;
   font-weight: 400;
   font-size: 18px;
   text-transform: uppercase;
   margin-bottom: 0px;
   margin-top:10px;
+}
+
+.bookInfo a {
+  font-size:16px;
+}
+
+span.read { 
+  font-size:14px;
+  /*position: absolute;*/
+  bottom: 10px;
+  right: 10px;
+
+}
+
+.back h4 {
+  display:block;
 
 }
 
@@ -67,6 +95,8 @@ body {
 }
 
 .shelfTopBar {
-  border-top:solid 1px #ccc;
+  border-top:solid 1px #999988;
   margin-bottom: -45px;
 }
+
+html * { color:#333333;}

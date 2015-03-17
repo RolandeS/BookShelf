@@ -1,29 +1,35 @@
 <div class="row">
-	<div class="UserInfo">
-		<h2>Hey, <%=current_user.first_name.capitalize %></h2>
-		<h4>welcome to your bookshelf</h4>
-		<p class="right">Search will go here!</p>
-	</div>
-	<div class="shelf-list">
-		<%= render @shelves if @shelves %>
-	</div>
-	</br>
-	</br>
-	<div class='clearfix'>
+	<div class="wrapperShelf">
+		<div class="UserInfo">
+			<h2>Hey, <%=current_user.first_name.capitalize %></h2>
+			<h4>welcome to your bookshelf</h4>
+			<p class="right">Search will go here!</p>
+		</div>
+		<div class="shelf-list">
+			<%= render @shelves if @shelves %>
+		</div>
 		</br>
-	</br>
-	</div>
-	<div class='row newshelf'>
-		<h5>Add a new shelf: </h5>
-		<%= form_for Shelf.new, :remote => true do |f| %>
-			<div class="field">
-				<%= f.text_field :name, :placeholder => "Name" %>
-			</div>
+		</br>
+		<div class='clearfix'>
+			</br>
+		</br>
+		</div>
+		<div class='row newshelf'>
+			<%= form_for Shelf.new, :remote => true do |f| %>
 
-			<div class="actions">
-				<%= f.submit :submit, value: "Submit", class: 'button closeModalSubmit small' %>
-			</div>
-		<% end %>
+			<div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-10 columns field">
+          <%= f.text_field :name, :placeholder => "Shelf Name" %>
+        </div>
+        <div class="small-2 columns">
+        	<%= f.submit :submit, value: "Add shelf", class: 'button postfix closeModalSubmit small' %>
+        </div>
+			<% end %>
+      </div>
+
+
+		</div>
 	</div>
 </div>
 

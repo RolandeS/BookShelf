@@ -1,3 +1,42 @@
-// Place all the styles related to the books controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*Book Styling*/
+.front, .back, .bookInfo { background-color:#fff; }
+
+.front, .back { 
+  height:75px; 
+  width:auto;
+}
+
+.back {
+  /*max-width:200px;*/
+  font-size:12px;
+  word-wrap: break-word;
+  padding:20px;
+}
+
+.front { word-wrap:break-word; }
+
+.bookInfo { 
+  cursor: pointer; 
+  padding:20px;
+  height:150px;
+  /*position:relative;*/
+}
+
+.bookInfo a { font-size:16px; }
+
+#bookOptions { text-align: right; }
+
+#bookOptions img {
+  width:12px;
+  margin-right:10px;
+  opacity: 0.5;
+}
+
+span.read { 
+  font-size:14px;
+  /*position: absolute;*/
+  /*bottom: 15px;
+  right: 20px;*/
+  float:right;
+  margin-top:50px;
+}

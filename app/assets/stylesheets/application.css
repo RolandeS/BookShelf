@@ -20,15 +20,16 @@
  */
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+@import url(http://fonts.googleapis.com/css?family=Cantata+One);
 
 body {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
-  padding:0px 0px;
 }
 
+/* Carousel Styling*/
 .owl-carousel.owl-theme { 
-  width:90%;
+  width:100%;
   margin:0 auto;
 }
 
@@ -38,76 +39,26 @@ body {
   margin-top: 20px;
 }
 
-.bookInfo {
-  border:solid 1px black;
-  padding:20px;
-  height:150px;
-}
-
-a.button.right.addshelf {
-  margin-right: 5%;
-  margin-top:0px;
-}
-
-.detailsLink, .bookclose { cursor:pointer; }
-
-.bookInfo.item.start {
-  height: 200px;
-  padding: 20px 40px;
-  text-align: center;
-  width: 93%;
+.owl-theme .owl-controls .owl-buttons div{
+  color:#333333;
+  font-size: 26px;
+  font-weight: 400;
+  background: none;
 }
 
 .owl-theme .owl-controls .owl-buttons div { position: absolute; }
- 
 .owl-theme .owl-controls .owl-buttons .owl-prev{
   left: -45px;
-  top: 75px; 
+  top: 65px; 
 }
  
 .owl-theme .owl-controls .owl-buttons .owl-next{
   right: -45px;
-  top: 75px;
+  top: 65px;
 }
 
-.front, .back { height:75px; }
-
-.back { 
-  border:solid 1px black; 
-  padding:20px;
+/* Modals */
+input[type="text"], textarea {
+  margin: 0 0 0.8rem 0;
+  padding: 0.5rem;
 }
-
-h3, #userShelves {clear:both;}
-
-#userShelves {display: block; margin: 0 auto;}
-
-.large-6 {padding:0px 30px;}
-
-.shelfStart {height:320px;}
-
-.singleShelf {float:left;}
-
-.row .newshelf {
-  width:50%;
-  text-align: center;
-  margin: 0 auto;
-}
-
-[class*="column"] + [class*="column"]:last-child {
- /* float: left;
-  clear: both;*/
-}
-
-.large-6 {height:360px;}
-
-
-.top-bar, .top-bar-section li:not(.has-form) a:not(.button) {
-  text-transform: uppercase;
-}
-
-.top-bar {border-bottom:solid 1px #ccc; height: 50px; }
-
-.openall {margin-right:10px;}
-
-
-

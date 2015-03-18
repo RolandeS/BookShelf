@@ -1,13 +1,10 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$background-main-overlay:rgba(244,244,239,0.8);
+$text-color:#333333;
 
-
-@import url(http://fonts.googleapis.com/css?family=Cantata+One);
+html * { color: $text-color; }
 
 .wrapper {
-  background: #ccc;
-  background: url("homepage_alt4.jpg") no-repeat center center fixed;
+  background: url("homepage_alt5.jpg") no-repeat center center fixed;
   padding:50px;
 }
 
@@ -17,12 +14,17 @@
   margin:0 auto;
 }
 
-.homepage h3 {margin-top:60px;}
+.homepage h3 { margin-top:60px; }
 
 .homepage h4 {
   margin-top: -25px;
   font-size: 16pt;
   margin-bottom: 20px;
+}
+
+.top-bar .name h1 a { 
+  color:$text-color;
+  font-size: 1.1em;
 }
 
 .homepage form, .loginPage form {
@@ -33,7 +35,7 @@
 }
 
 .homepage, .loginPage {
-  background-color:rgba(255,255,255,0.8);
+  background-color:$background-main-overlay;
   margin-top:50px;
   margin-bottom:50px;
 }
@@ -41,6 +43,7 @@
 .homepage span, .loginPage h1 span {
   font-family: 'Cantata One', serif;
   font-size: 28pt;
+  color:$text-color;
 }
 
 .homepage .small {font-size: 14pt;}
@@ -57,12 +60,22 @@
   margin-bottom:50px;
 }
 
-.top-bar .toggle-topbar.menu-icon a {
-  color:#ccc;
-}
+/* nav */
+.top-bar .toggle-topbar.menu-icon a { color:$text-color }
 
 .top-bar .toggle-topbar.menu-icon a span::after {
-    box-shadow: 0 0 0 1px #CCC, 0 7px 0 1px #CCC, 0 14px 0 1px #CCC;
+    box-shadow: 0 0 0 1px #999999, 0 7px 0 1px #999999, 0 14px 0 1px #999999;
+}
+
+.top-bar, .top-bar-section li:not(.has-form) a:not(.button) { 
+    text-transform: uppercase; 
+    font-size:1em;
+    color:$text-color
+}
+
+.top-bar {
+  border-bottom:solid 1px #999999; 
+  height: 50px; 
 }
 
 .top-bar-section ul li {
@@ -71,15 +84,17 @@
   padding-right:20px;
 }
 
+/*nav.top-bar.expanded {
+  max-height: 600px;
+}
+
+nav.top-bar {
+  max-height: 45px;
+  transition: max-height .3s ease-in-out;
+}
+*/
 @media screen and (max-width: 640px) {
   .top-bar-section ul li {
     border-bottom: solid 1px #ccc;
   }
 }
-
-
-
-/*footer {
-  padding:10px;
-  text-align: center;
-}*/

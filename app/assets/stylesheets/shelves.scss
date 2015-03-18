@@ -1,8 +1,59 @@
-// Place all the styles related to the shelves controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$background-main-overlay:rgba(244,244,239,0.8);
+$text-color:#333333;
 
-.selected {
-	background-color: #ccc;
-	color: white;
+/*General shelf styling*/
+html * { color: $text-color; }
+body { background: url("homepage_alt5.jpg") no-repeat center center fixed; }
+
+.wrapperShelf{
+  margin: 100px 0px;
+  padding:0px 50px;
+  background-color:$background-main-overlay;
 }
+
+.UserInfo { padding:60px 0px; }
+
+.singleShelf h4 {
+  width:30%;
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+  margin-top:10px;
+}
+
+.shelfTopBar {
+  border-top:solid 2px #999988;
+  margin-bottom: -45px;
+}
+
+.large-6 {
+  padding:0px 30px;
+  height:300px;
+}
+
+[class*="column"] + [class*="column"]:last-child {
+  float: left;
+}
+
+/* Add a new shelf styling */
+.new_shelf input#shelf_name {
+  border:none;
+  outline:none;
+}
+
+.row .newshelf {
+  width:60%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.postfix.button { 
+  margin-bottom: 60px; 
+  min-width: 80px;
+}
+
+/* Modal styling */
+.reveal-modal-bg { display: none !important; }
+.reveal-modal, dialog { border:none; }
+

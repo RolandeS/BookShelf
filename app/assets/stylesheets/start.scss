@@ -1,5 +1,15 @@
-// Place all the styles related to the start controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.selected {
+  background-color: #ccc;
+  color: white;
+}
 
+.bookInfo.item.start {
+  height: 200px;
+  padding: 20px 40px;
+  text-align: center;
+  width: 93%;
+}
 
+h3, #userShelves {clear:both;}
+#userShelves {display: block; margin: 0 auto;}
+.shelfStart {height:320px;}

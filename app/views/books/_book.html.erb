@@ -2,14 +2,12 @@
 <div id="book-<%= book.id %> book" class="item">
 	<!-- group of stuff in book end -->
 	<div class="cardFor-<%= book.id %> card"> 
-		
-			
 			<!-- Front of the book -->
 			<div class="front"> 
 				<div class="bookInfo">
 					<%= link_to book.name.upcase, "http://"+book.link, :target => "_blank" %> </br>
 					<img src="http://www.google.com/s2/favicons?domain_url=<%=book.link%>" alt="Icon">
-					<%= book.read %></br>
+					</br><span class="read"><%= book.read %></span></br>
 					
 					<!-- Edit form  -->
 					<div id="book_<%= book.id %>" class="reveal-modal" data-reveal>
@@ -35,7 +33,7 @@
 										<%= f.radio_button :read, 'Revisit' %> Revisit Later </br>
 									</div>
 									<div class="actions">
-										<%= f.submit :submit, class: 'button closeModalSubmit' %>
+										<%= f.submit :submit, value: "Save", class: 'button closeModalSubmit tiny' %>
 									</div>
 							<% end %>
 							<a class="close-reveal-modal">&#215;</a>	
@@ -50,7 +48,6 @@
 
 			<!-- Back of the Book  -->
 			<div class="back">
-				<span class="closedetailsFor-<%= book.id %> bookclose right">X</span></br>
 				<% if book.note != "" %>
 			    <%= book.note %>
 			    <% else %>
@@ -58,11 +55,14 @@
 			    <% end %>
 			 </div> 
 			<!-- Back of the Book End -->
-		
+
 	</div>
 	<!-- group of stuff in book end -->
 
-	<a href="#" data-reveal-id="book_<%= book.id %>" class="btn btn-mini">Edit</a> | 
-	<%= link_to "Delete", shelf_book_path(book.shelf_id, book), data: {confirm: "Are you sure you want to delete this book?"}, :method => :delete, :remote => true, :class => "delete_book" %>
-	| <span class="detailsLink">Details</span>
+	<div id="bookOptions">
+		<a href="#" data-reveal-id="book_<%= book.id %>" class="btn btn-mini"><%= image_tag ("editIcon.png")%></a>  
+		<%= link_to image_tag("deleteIcon.png"), shelf_book_path(book.shelf_id, book), data: {confirm: "Are you sure you want to delete this book?"}, :method => :delete, :remote => true, :class => "delete_book" %>
+		 <span class="detailsLink"><%= image_tag ("detailsIcon.png")%></span>
+	</div>
+
 </div>

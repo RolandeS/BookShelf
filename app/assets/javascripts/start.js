@@ -2,15 +2,17 @@ $( document ).ready(function() {
     //console.log( "ready!" );
     var chosenBookshelves = [];
 
-    $( ".shelfStart" ).on( "click", function( event ) {
-    	//chosenBookshelves.push(event.target.id);
-
+    $( ".getstarted" ).on( "click", function( event ) {
     	$(this).toggleClass('selected');
-    	//console.log(selected())
-    	// $('#shelf_ids').val(selected());
- 
-
+      if ($(this).hasClass('selected')) {
+        $(this).siblings().hide()
+        $(this).css("border-top", "none")
+      } else {
+        $(this).siblings().show()
+        $(this).css("border-top", "solid 2px #999988")
+      }
 	});
+
 
 	function selected(){
 		var i;

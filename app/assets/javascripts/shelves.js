@@ -45,3 +45,5 @@ $(document).on('ready page:load', function(){
     window.open(link, '_blank');
 
   }); 
+
+});

@@ -8,7 +8,7 @@ class Shelf < ActiveRecord::Base
 	belongs_to :user
 	has_many :books
 	
-	validates :name, uniqueness: {scope: :user_id}
+	validates :name, uniqueness: {scope: :user_id, :case_sensitive => false}, length: { maximum: 35 }
 
 	def copy_to(user)
 		new_shelf = dup

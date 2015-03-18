@@ -41,6 +41,6 @@ $(document).on('ready page:load', function(){
   $('.bookInfo').click(function(){
     openLink = $(this).children().first().attr('href');
     window.location.href = openLink
-  });  
+  }); 
 
 });

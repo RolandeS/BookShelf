@@ -1097,17 +1097,17 @@ $font-weight-normal: 100;
 // We use these to control the style of the modal itself.
 // $reveal-modal-bg: $white;
 // $reveal-position-top: rem-calc(100);
-// $reveal-default-width: 80%;
+ $reveal-default-width: 30%;
 // $reveal-max-width: $row-width;
 // $reveal-modal-padding: rem-calc(20);
 // $reveal-box-shadow: 0 0 10px rgba($black,.4);
 
 // We use these to style the reveal close button
-// $reveal-close-font-size: rem-calc(40);
-// $reveal-close-top: rem-calc(8);
+ $reveal-close-font-size: rem-calc(25);
+ $reveal-close-top: rem-calc(11);
 // $reveal-close-side: rem-calc(11);
 // $reveal-close-color: $base;
-// $reveal-close-weight: $font-weight-bold;
+ $reveal-close-weight: $font-weight-normal;
 
 // We use this to set the default radius used throughout the core.
 // $reveal-radius: $global-radius;

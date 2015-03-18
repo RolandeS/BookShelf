@@ -38,9 +38,4 @@ $(document).on('ready page:load', function(){
 	carouselInit(".owl-carousel");
 	flipInit(".card");
 
-  $('.bookInfo').click(function(){
-    openLink = $(this).children().first().attr('href');
-    window.location.href = openLink
-  }); 
-
 });

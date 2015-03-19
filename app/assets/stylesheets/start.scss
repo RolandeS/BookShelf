@@ -13,6 +13,16 @@ h4.getstarted.selected {
   text-align: center;
   padding-top:90px;
   font-weight: 300;
+
+  transition: background .25s linear;
+  -webkit-transition: background .25s linear;
+  -moz-transition: background .25s linear;
+  -o-transition: background .25s linear;
+
+}
+
+h4.getstarted.selected:before {
+  content: '+ '
 }
 
 .bookInfo.item.start {
@@ -40,7 +50,7 @@ h4.getstarted.selected:hover {color: #ffffff;}
 #userShelves {
   display: block; 
   margin: 0 auto;
-  margin-bottom:50px;
+  margin-bottom:10px;
   color:#fff;
   font-size: 14px;
 }

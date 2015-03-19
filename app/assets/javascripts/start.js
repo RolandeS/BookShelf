@@ -8,7 +8,7 @@ $( document ).ready(function() {
         $(this).siblings().hide()
         $(this).css("border-top", "none")
       } else {
-        $(this).siblings().show()
+        $(this).siblings().fadeIn(200)
         $(this).css("border-top", "solid 2px #999988")
       }
 	});

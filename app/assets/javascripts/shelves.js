@@ -43,7 +43,8 @@ $(document).on('ready page:load', function(){
     var link = "http://"+ openLink
     console.log(link);
     window.open(link, '_blank');
-
   }); 
+
+  $(document).foundation('reveal', {animation: 'fade'});
 
 });

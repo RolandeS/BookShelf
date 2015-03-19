@@ -22,7 +22,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400);
 @import url(http://fonts.googleapis.com/css?family=Cantata+One);
 
-body {
+body, input {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 }
@@ -31,7 +31,6 @@ body {
 .owl-carousel.owl-theme { 
   width:100%;
   margin:0 auto;
-
 }
 
 .owl-item .item {
@@ -91,4 +90,3 @@ input[type="text"], textarea {
 @media screen and (max-width: 640px) {
   .reveal-modal, dialog { width:100%; }
 }
-

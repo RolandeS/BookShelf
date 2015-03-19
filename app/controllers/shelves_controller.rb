@@ -3,7 +3,38 @@ class ShelvesController < ApplicationController
   before_filter :ensure_logged_in
 
   def index
-    @shelves = current_user.shelves
+    # @shelves = current_user.shelves
+
+    # if params[:search]
+    #   @shelves = Shelf.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%") || Book.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+    # end
+
+    search_value1 = "%#{params[:search]}%"
+    search_value2 = "#{current_user.id}"
+    search_query = "LOWER(name) LIKE LOWER(?) and (user_id) = ?"
+    search_query2 = "LOWER(name) LIKE LOWER(?)" #&&  and Shelf.where(user_id = ?)
+
+    if params[:search]
+      if Shelf.where([search_query, search_value1, search_value2])
+        @shelves = Shelf.where([search_query, search_value1, search_value2])
+      elsif 
+      Book.where([search_query2, search_value1]) #and Shelf.where(user_id = ?, search_value2)
+        @shelf = Shelf.new(name: 'Search Results Shelf')
+        @shelf.books = Book.where([search_query2, search_value1]) #, search_value2])
+        @shelves = @shelf
+      # else Book.each do |book|
+      #         if book.note.where....
+
+      #       end
+      end
+    else
+      @shelves = current_user.shelves
+    end 
+
+
+
+
+
   end
 
   def new

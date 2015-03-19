@@ -4,7 +4,11 @@
     <div class="UserInfo">
       <h2>Hey, <%=current_user.first_name.capitalize %></h2>
       <h4>welcome to your bookshelf</h4>
-      <p class="right">Search will go here!</p>
+      <!-- <p class="right">Search will go here!</p> -->
+      <%= form_tag shelves_path, method: :get, authentication: false, id: 'search-form' do %>
+        <p class="right"><%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search" %></p>
+      <% end %>
     </div>
 
     <div class="shelf-list">

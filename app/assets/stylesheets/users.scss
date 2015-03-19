@@ -54,6 +54,16 @@ html * { color: $text-color; }
   margin-top:50px;
 }
 
+.loginPage h5 {
+  text-align: center;
+  margin-bottom:50px;
+  font-size: 1rem;
+}
+
+.loginPage h5 span {
+  font-weight: 400;
+}
+
 .homepage .button, .loginPage .button {
   background-color: #84cfd5;
   font-weight: 300;

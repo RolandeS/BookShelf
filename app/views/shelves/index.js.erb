@@ -1,0 +1,18 @@
+$('.shelf-list').html("<%= j (render @shelves) %>")
+carouselInit('.shelf-list .owl-carousel')
+flipInit(".card");
+
+$("#search")
+    .queue(function() { $(this).dequeue() })
+    .delay(2000)
+    .queue(function() { $(this).val("").dequeue() })
+
+$('.new_shelf').hide();
+
+$('#backToBookShelf').show();
+
+
+  
+ 
+
+

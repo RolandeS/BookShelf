@@ -4,10 +4,25 @@
     <div class="UserInfo">
       <h2>Hey, <%=current_user.first_name.capitalize %></h2>
       <h4>welcome to your bookshelf</h4>
-      <p class="right">Search will go here!</p>
     </div>
+      
+    <!-- <p class="right">Search will go here!</p> -->
+    <%= form_tag shelves_path, method: :get, remote: true, authentication: false, id: 'search-form' do %>
+    <div class="large-7 columns right">
+        <div class="row collapse">
+            <div class="small-5 columns field">
+                <%= text_field_tag :search, params[:search] %>
+            </div>
+            <div class="small-2 columns">
+               <%= submit_tag "Search", class: 'button postfix small' %>
+             </div>
+        </div>
+      </div>
+      
+    <% end %>
+    
 
-    <div class="shelf-list">
+    <div class="shelf-list clearfix">
       <%= render @shelves if @shelves %>
     </div>
   
@@ -33,6 +48,10 @@
           </div>
         </div>
       <% end %>
+    </div>
+
+    <div id="backToBookShelf" hidden>
+    <%= link_to "Return to my BookShelf", :mybookshelf %>
     </div>
   </div>
 </div>

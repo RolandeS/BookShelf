@@ -37,8 +37,7 @@ $(document).on('ready page:load', function(){
 	
 	carouselInit(".owl-carousel");
 	flipInit(".card");
-
-  $('.bookInfo').click(function(){
+  $(document).delegate( ".bookInfo", "click", function() {
     var openLink = $(this).find('.hiddenLink').text();
     var link = "http://"+ openLink
     console.log(link);

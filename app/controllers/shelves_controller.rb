@@ -1,9 +1,29 @@
 class ShelvesController < ApplicationController
 
+  SHELVES_SEARCH_SQL =<<-SQL
+    LOWER(books.name) LIKE LOWER(?) OR
+    LOWER(books.note) LIKE LOWER(?) OR
+    LOWER(shelves.name) LIKE LOWER(?)
+  SQL
+
   before_filter :ensure_logged_in
 
   def index
-    @shelves = current_user.shelves
+    if params[:search]
+      query = "%#{params[:search]}%"
+      @shelves = current_user.shelves.joins(:books)
+      @shelves = @shelves.where(SHELVES_SEARCH_SQL, query, query, query).uniq(:id)
+      # might need to add something that returns the shleves that don't have any books on them yet. like:
+      # @shelves = Shelf.where("LOWER(name) LIKE LOWER(?) and (user_id) = ?", "%#{params[:search]}%", "#{current_user.id}")
+    else
+      @shelves = current_user.shelves
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def new

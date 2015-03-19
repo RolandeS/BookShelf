@@ -17,7 +17,7 @@ $( document ).ready(function() {
 	function selected(){
 		var i;
 		var new_ids = [];
-		var ids = $('.selected').map(function(index) {
+		var ids = $('.selected').parent().map(function(index) {
     	return this.id; });
 
     	for (i=0; i<ids.length; i++){

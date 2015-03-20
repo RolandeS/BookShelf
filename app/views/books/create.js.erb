@@ -1,25 +1,29 @@
 <% if @book.errors.any? %>
-  $('#addBookModal_' + <%= @shelf.id %>).find('.bookErrors').html("<%= j(render partial: "/shelves/errors", locals: {object: @book}) %>")
+  $('#addBookModal_' + <%= @shelf.id %>)
+    .find('.bookErrors')
+    .html("<%= j(render partial: "/shelves/errors", locals: {object: @book}) %>")
+    
   $(".bookErrors").fadeIn().delay(2300).fadeOut();
   
   $('.open form')[0].reset();
      
 <% else %>
-$("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
+  $("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
 
 
-var carousel = $("#shelf-<%= @shelf.id %> .owl-carousel")
+  var carousel = $("#shelf-<%= @shelf.id %> .owl-carousel")
 
-carousel.owlCarousel({
-    items : 2,
-    navigation : true, 
-    navigationText : ["<",">"],
-    pagination : false,
-    scrollPerPage : false,
-    slideSpeed : 300,
-  });
+  carousel.owlCarousel({
+      items : 2,
+      navigation : true, 
+      navigationText : ["<",">"],
+      pagination : false,
+      scrollPerPage : false,
+      slideSpeed : 300,
+    });
 
-$('.open form')[0].reset();
+  $('.open form')[0].reset();
+
 
 $('.reveal-modal-bg').foundation('reveal', 'close');
 

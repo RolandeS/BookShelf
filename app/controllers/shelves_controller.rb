@@ -60,6 +60,9 @@ class ShelvesController < ApplicationController
       if @shelf.update_attributes(shelf_params)
         format.html {redirect_to shelves_path}
         format.js
+      else
+        format.html {redirect_to shelves_path}
+        format.js
       end
     end
   end

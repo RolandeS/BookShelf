@@ -44,6 +44,9 @@ before_filter :load_shelf
       if @book.update_attributes(book_params)
         format.html {redirect_to shelves_path}
         format.js {}
+      else
+        format.html {redirect_to shelves_path}
+        format.js {} 
       end
     end 
   end

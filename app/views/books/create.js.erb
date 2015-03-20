@@ -3,10 +3,10 @@
   $(".bookErrors").fadeIn().delay(2300).fadeOut();
   
   $('.open form')[0].reset();
-  
-   // $('#addBookModal_' + <%= @shelf.id %>).find('.close-reveal-modal').click($('.open form')[0].reset());   
+     
 <% else %>
 $("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
+
 
 var carousel = $("#shelf-<%= @shelf.id %> .owl-carousel")
 
@@ -22,11 +22,14 @@ carousel.owlCarousel({
 $('.open form')[0].reset();
 
 $('.reveal-modal-bg').foundation('reveal', 'close');
-flipInit(".card");
+
 var owl = carousel.data('owlCarousel');
 owl.goTo(<%= @shelf.books.count %>);
 
+flipInit(".card");
+
 <% end %>
+
 
 
 

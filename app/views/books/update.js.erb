@@ -1,13 +1,9 @@
 <% if @book.errors.any? %>
-
-$('#addBookModal_' + <%= @shelf.id %>).find('.bookErrors').html("<%= j(render partial: "/shelves/errors", locals: {object: @book}) %>")
-$(".bookErrors").fadeIn().delay(2300).fadeOut();
-
+  $('#addBookModal_' + <%= @shelf.id %>).find('.bookErrors').html("<%= j(render partial: "/shelves/errors", locals: {object: @book}) %>")
+  $(".bookErrors").fadeIn().delay(2300).fadeOut();
 <% else %>
-
-// $('#book').replaceWith("<%= j(render(:partial => "books/book", locals: { shelf: @shelf, book: @book}))%>");
-$("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
-carouselInit("#shelf-<%= @shelf.id %> .owl-carousel")
-$('.reveal-modal-bg').foundation('reveal', 'close');
-flipInit(".card");
+  $("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
+  carouselInit("#shelf-<%= @shelf.id %> .owl-carousel")
+  $('.reveal-modal-bg').foundation('reveal', 'close');
+  flipInit(".card");
 <% end %>

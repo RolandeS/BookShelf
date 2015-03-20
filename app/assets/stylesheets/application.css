@@ -67,8 +67,8 @@ input[type="text"], textarea {
 }
 
 /*Errors styling*/
-#error_explanation ul li { list-style-type: none; }
-#error_explanation {padding-bottom: 20px;}
+#error_explanation ul li { list-style-type: none; color: red; }
+#error_explanation {padding-bottom: 0px; text-align: center;}
 
 @media screen and (max-width: 1100px) {
   .reveal-modal, dialog { width:50%; }

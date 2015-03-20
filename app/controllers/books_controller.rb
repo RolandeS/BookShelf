@@ -39,10 +39,11 @@ before_filter :load_shelf
   def update
     @book = Book.find(params[:id])
     
+    # respond_to :js
     respond_to do |format|
       if @book.update_attributes(book_params)
         format.html {redirect_to shelves_path}
-        format.js{}
+        format.js {}
       end
     end 
   end

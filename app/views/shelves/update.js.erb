@@ -1,6 +1,12 @@
+<% if @shelf.errors.any? %>
+  $("#errors").hide()
+  $("#errors").html("<%= j(render partial: "errors", locals: {object: @shelf}) %>")
+  $("#errors").fadeIn().delay(2300).fadeOut();
+  $('input#shelf_name').last().val("");
+<% else %>
 $("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
 carouselInit("#shelf-<%= @shelf.id %> .owl-carousel")
 flipInit(".card");
 $('.reveal-modal-bg').foundation('reveal', 'close');
-
+<%end%>
 

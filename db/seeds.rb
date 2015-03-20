@@ -72,6 +72,13 @@ Book.create!(
   note: "My very old account",
   shelf: bank_shelf
 	)
+Book.create!(
+  name: "BMO",
+  link: "www.bmo.com",
+  read: 'Revisit',
+  note: "My bills account",
+  shelf: bank_shelf
+  )
 
 #--------------------------
 email_shelf = Shelf.create!(
@@ -144,3 +151,106 @@ Book.create!(
   shelf: shopping_shelf
 	)
 
+#--------------------------
+movie_shelf = Shelf.create!(
+  name: "Movies",
+  user: demo_user
+  )
+
+Book.create!(
+  name: "Imdb",
+  link: "www.imdb.com",
+  read: 'Revisit',
+  note: "Check reviews here",
+  shelf: movie_shelf
+  )
+Book.create!(
+  name: "Netflix",
+  link: "www.netflix.com",
+  read: 'Revisit',
+  note: "Watch Walking Dead!!",
+  shelf: movie_shelf
+  )
+Book.create!(
+  name: "Youtube",
+  link: "www.Youtube.com",
+  read: '',
+  note: "",
+  shelf: movie_shelf
+  )
+Book.create!(
+  name: "Hollywood",
+  link: "www.hollywood.com",
+  read: '',
+  note: "",
+  shelf: movie_shelf
+  )
+
+#--------------------------
+tech_shelf = Shelf.create!(
+  name: "Tech",
+  user: demo_user
+  )
+
+Book.create!(
+  name: "TechCrunch",
+  link: "www.techcrunch.com",
+  read: 'Revisit',
+  note: "Check Daily",
+  shelf: tech_shelf
+  )
+Book.create!(
+  name: "Wired",
+  link: "www.wired.com",
+  read: 'Revisit',
+  note: "Check Daily",
+  shelf: tech_shelf
+  )
+Book.create!(
+  name: "HackerNews",
+  link: "www.thehackernews.com",
+  read: '',
+  note: "",
+  shelf: tech_shelf
+  )
+Book.create!(
+  name: "Mashable",
+  link: "www.mashable.com",
+  read: '',
+  note: "",
+  shelf: tech_shelf
+  )
+#--------------------------
+recipe_shelf = Shelf.create!(
+  name: "Recipes",
+  user: demo_user
+  )
+
+Book.create!(
+  name: "AllRecipes",
+  link: "allrecipes.com",
+  read: 'Revisit',
+  note: "Check the crispy sweet and spicy chicken wings recipe!!",
+  shelf: recipe_shelf
+  )
+Book.create!(
+  name: "Yummly",
+  link: "www.yummly.com",
+  read: 'Revisit',
+  note: "Check Daily",
+  shelf: recipe_shelf
+  )
+Book.create!(
+  name: "Epicurious",
+  link: "www.epicurious.com/",
+  read: '',
+  note: "",
+  shelf: recipe_shelf
+  )
+Book.create!(
+  name: "Foodnetwork",
+  link: "www.foodnetwork.com/",
+  read: '',
+  note: "",
+  shelf: recipe_shelf
+  )

@@ -1,7 +1,7 @@
 <% if @book.errors.any? %>
   $('#addBookModal_' + <%= @shelf.id %>).find('.bookErrors').html("<%= j(render partial: "/shelves/errors", locals: {object: @book}) %>")
   $(".bookErrors").fadeIn().delay(2300).fadeOut();
-  <%@book.errors.clear()%>
+  
   $('.open form')[0].reset();
   
    // $('#addBookModal_' + <%= @shelf.id %>).find('.close-reveal-modal').click($('.open form')[0].reset());   

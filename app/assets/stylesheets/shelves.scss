@@ -28,12 +28,34 @@ body { background: url("homepage_alt5.jpg") no-repeat center center fixed; }
 }
 
 .large-6 {
-  padding:0px 30px;
-  height:300px;
+  padding:0px 20px;
+  height:320px;
 }
 
 [class*="column"] + [class*="column"]:last-child {
   float: left;
+}
+
+a.addshelf.right { margin-top: -10px; }
+
+/* Search */
+.searchbox {
+  margin-bottom: -50px;
+  margin-top:20px;
+}
+
+#backToBookShelf {
+  text-align: center;
+  margin-top: -80px;
+  margin-bottom: 20px;
+  font-size: 1.25em;
+}
+
+#backToBookShelf a:hover { color: #999988; }
+
+input:-webkit-autofill, input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 1000px white inset;
+  /*-webkit-text-fill-color: #333;*/
 }
 
 /* Add a new shelf styling */

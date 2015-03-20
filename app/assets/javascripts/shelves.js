@@ -12,18 +12,19 @@ function carouselInit(selector) {
 }
 
 function flipInit(selector){
+
 	$(selector).flip({
     trigger: 'manual'
   });
+
+  $('.back').css("height", "150");
 
   $(".detailsLink").unbind('click').on("click", function(e){
     e.stopPropagation()
 
     $(this).toggleClass('flipped');
-    $('.back').css("height", "150")
 
-    if ($(this).hasClass("flipped")) {
-     
+    if ($(this).hasClass("flipped")) { 
       $(this).parent().parent().children().find('.card').flip(true);
        console.log('flip');
       yolo = $(this).parent().parent().children().find('.back');

@@ -27,6 +27,9 @@ body, input {
 	font-weight: 300;
 }
 
+.Logo { height:32px;}
+.top-bar .name h1 a { padding-right:0px;}
+
 /* Carousel Styling*/
 .owl-carousel.owl-theme { 
   width:100%;

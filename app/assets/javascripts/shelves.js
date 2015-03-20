@@ -16,16 +16,23 @@ function flipInit(selector){
     trigger: 'manual'
   });
 
-  $(".detailsLink").on("click", function(e){
+  $(".detailsLink").unbind('click').on("click", function(e){
+    e.stopPropagation()
+
     $(this).toggleClass('flipped');
+    $('.back').css("height", "150")
+
     if ($(this).hasClass("flipped")) {
+     
       $(this).parent().parent().children().find('.card').flip(true);
+       console.log('flip');
       yolo = $(this).parent().parent().children().find('.back');
         if (yolo.text().length > 150) {
            $(this).parent().parent().children().find('.back').text(yolo.text().substr(0,150)+'...')
         }
     } else {
-      $(this).parent().parent().parent().find('.card').flip(false);
+      $(this).parent().parent().children().find('.card').flip(false)
+      console.log('unflip');
     }
   });
   
@@ -37,6 +44,7 @@ $(document).on('ready page:load', function(){
 	
 	carouselInit(".owl-carousel");
 	flipInit(".card");
+
   $(document).delegate( ".bookInfo", "click", function() {
     var openLink = $(this).find('.hiddenLink').text();
     var link = "http://"+ openLink

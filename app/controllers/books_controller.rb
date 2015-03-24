@@ -38,17 +38,22 @@ before_filter :load_shelf
 
   def update
     @book = Book.find(params[:id])
-    
-    # respond_to :js
+
+    if request.xhr?
+        @book.update_attribute('last_clicked', params[:last_clicked])
+        # @book.last_clicked
+        # format.js
+    end 
+
     respond_to do |format|
       if @book.update_attributes(book_params)
         format.html {redirect_to shelves_path}
         format.js {}
-      else
+      else 
         format.html {redirect_to shelves_path}
         format.js {} 
       end
-    end 
+    end
   end
 
   def destroy
@@ -64,7 +69,7 @@ before_filter :load_shelf
 
   private
   def book_params
-    params.require(:book).permit(:name, :link, :note, :read, :shelf_id, :icon)
+    params.require(:book).permit(:id, :name, :link, :note, :read, :last_clicked, :shelf_id, :icon)
   end
     
   def load_shelf

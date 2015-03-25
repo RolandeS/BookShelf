@@ -15,4 +15,5 @@ class User < ActiveRecord::Base
 			shelf.copy_to(user)
 		end
 	end
+
 end

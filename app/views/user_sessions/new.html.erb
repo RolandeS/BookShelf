@@ -11,15 +11,15 @@
 				<%= password_field_tag :password %>
 			</div>
 			<div class="field">
-				<%= label_tag :remember %>
-				<%= check_box_tag :remember %>
+				<%= label_tag :remember, "Remember Me"%> 
+				<%= check_box_tag :remember %></br></br>
 			</div>
 			<div class="actions">
 				<%= submit_tag "LOGIN", class: 'button'%>	
 			</div>
 		<% end %>
 
-		<h5>New User? <span><%=link_to 'Register Here', root_path%></span></h5>
+		<h5>New User? <span><%=link_to 'Register Here', root_path%></span> | Forgot Password? <span><%= link_to 'Get a New One', :forgotpassword %></span> </h5>
 	</div>
 </div>
 

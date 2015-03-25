@@ -9,6 +9,7 @@
      
 <% else %>
   $("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
+  $(".notifications").html("<%= j(render 'notifications')%>");
 
 
   var carousel = $("#shelf-<%= @shelf.id %> .owl-carousel")

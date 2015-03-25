@@ -51,21 +51,17 @@ $(document).on('ready page:load', function(){
   $(document).delegate( ".bookInfo", "click", function() {
     console.log('in handler;');
 
-    var shelf_id = 123;
-    var book_id = 89;
+    var book_id = $(this).parents('.item').data('id')
+    var shelf_id = $(this).parents('.singleShelf').data('id')
 
-    var last_clicked = new Date().getTime();
     $.ajax({
-        // url: "/shelves/:shelf_id/books/:id",
-        // url: "/shelves/123/books/89",
-        url: "/books/update",
-        data: {'last_clicked': last_clicked, 'shelf_id' : shelf_id, 'id': book_id},
+        url: "/books/add_last_click",
+        data: {'shelf_id' : shelf_id, 'id': book_id},
         dataType: "script",
-        type: 'PATCH'
-      }).done(function(){
-        console.log('posted')
-      })
+        type: 'POST'
+      });
 
+      console.log('time updated;');
 
     var openLink = $(this).find('.hiddenLink').text();
     var link = "http://"+ openLink

@@ -28,6 +28,12 @@ before_filter :load_shelf
     end
   end
 
+  def add_last_click
+    @book = Book.find(params[:id])
+    @book.last_clicked = Time.now
+    @book.save
+  end 
+
   def show
     @book = Book.find(params[:id])
   end

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   post 'shelves/add_demo_shelves'
-  patch 'books/update'
+  post 'books/add_last_click'
 
   resources :user_sessions, only: [:new, :create, :destroy]
 

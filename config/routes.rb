@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   post 'shelves/add_demo_shelves'
+  post 'books/add_book_extension'
 
   resources :user_sessions, only: [:new, :create, :destroy]
 

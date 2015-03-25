@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
 
 before_filter :load_shelf
+skip_before_filter :verify_authenticity_token
 
   def index
      @book = Book.all
@@ -28,6 +29,24 @@ before_filter :load_shelf
     end
   end
 
+  def add_book_extension
+    @book = Book.new
+    
+    # @shelf = Shelf.find(params[:shelf_id])
+    # @book = @shelf.books.build(book_params)
+    @book.save
+    # create book in here with params being passed in.
+
+# Started POST "/books/add_book_extension" for ::1 at 2015-03-25 12:04:58 -0400
+# Processing by BooksController#add_book_extension as */*
+#   Parameters: {"name"=>"Learn Ruby with the Neo Ruby Koans", "link"=>"http://rubykoans.com/", "note"=>"", "shelf_id"=>"123"}
+#   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+#   Shelf Load (0.1ms)  SELECT  "shelves".* FROM "shelves" WHERE "shelves"."user_id" = ? AND "shelves"."id" = ? LIMIT 1  [["user_id", 1], ["id", 123]]
+#   Rendered books/add_book_extension.html.erb within layouts/application (1.1ms)
+# Completed 200 OK in 456ms (Views: 436.5ms | ActiveRecord: 1.1ms)
+  
+  end 
+
   def show
     @book = Book.find(params[:id])
   end
@@ -39,7 +58,6 @@ before_filter :load_shelf
   def update
     @book = Book.find(params[:id])
     
-    # respond_to :js
     respond_to do |format|
       if @book.update_attributes(book_params)
         format.html {redirect_to shelves_path}

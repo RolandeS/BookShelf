@@ -1,5 +1,9 @@
-<h4>Notifications:</h4>
-        <p>This should be ajax updated!</p>
-        <p>You have <%= current_user.books.count %> books, start deleting!</p>  
-        <p>You have <%= current_user.books.where(last_clicked: nil).count %> unread books, start reading!</p> 
-        <p>Your BookShelf looks awesome!</p>
+<h5 class="notify">Click for Notifications</h5>
+<% if current_user.books.count > 50 %>
+  <p>You have <%= current_user.books.count %> books, start deleting!</p>  
+<% end %>
+<% if current_user.books.where(last_clicked: nil).count > 10 %>
+  <p>You have <%= current_user.books.where(last_clicked: nil).count %> unread books, start reading!</p> 
+<% else %>
+  <p>Your BookShelf looks awesome!</p>
+<% end %>

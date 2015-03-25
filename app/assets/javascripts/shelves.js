@@ -47,6 +47,12 @@ $(document).on('ready page:load', function(){
 	carouselInit(".owl-carousel");
 	flipInit(".card");
 
+  $('.notifications p').hide();
+  if ($('.notifications:has(p)')) {
+    $('.notifications').click(function(){
+      $('.notifications p').slideToggle();
+    })
+  }
 
   $(document).delegate( ".bookInfo", "click", function() {
     console.log('in handler;');

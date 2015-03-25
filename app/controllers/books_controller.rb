@@ -45,12 +45,6 @@ before_filter :load_shelf
   def update
     @book = Book.find(params[:id])
 
-    if request.xhr?
-        @book.update_attribute('last_clicked', params[:last_clicked])
-        # @book.last_clicked
-        # format.js
-    end 
-
     respond_to do |format|
       if @book.update_attributes(book_params)
         format.html {redirect_to shelves_path}

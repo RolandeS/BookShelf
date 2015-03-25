@@ -4,6 +4,11 @@
     <div class="UserInfo clearfix">
       <h2>Hey, <%=current_user.first_name.capitalize %></h2>
       <h4>welcome to your bookshelf</h4>
+      <br>
+
+      <div class="notifications">
+        <%= render 'books/notifications'%>
+      </div>
    
       
     <div class="large-4 columns right searchbox">

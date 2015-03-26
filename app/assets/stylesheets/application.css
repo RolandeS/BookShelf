@@ -69,6 +69,28 @@ input[type="text"], textarea {
   padding: 0.5rem;
 }
 
+/* Notifications */
+.notifications {
+  z-index: 5000;
+  position:absolute;
+  width:300px;
+  right:16%;
+
+}
+.notifications p {
+  background:#fff;
+  padding: 20px 20px;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+  margin-left:88%;
+}
+
 /*Errors styling*/
 #error_explanation ul li { list-style-type: none; color: red; }
 #error_explanation {padding-bottom: 0px; text-align: center;}

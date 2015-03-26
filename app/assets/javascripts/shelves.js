@@ -48,9 +48,12 @@ $(document).on('ready page:load', function(){
 	flipInit(".card");
 
   $('.notifications p').hide();
+  $('.notifications div').hide();
+
   if ($('.notifications:has(p)')) {
     $('.notifications').click(function(){
-      $('.notifications p').slideToggle();
+      $('.notifications div').fadeIn(1000).delay(3000).fadeOut(1000);
+      $('.notifications p').fadeIn(1000).delay(3000).fadeOut(1000);
     })
   }
 

@@ -29,6 +29,7 @@ body, input {
 
 .Logo { height:32px;}
 .top-bar .name h1 a { padding-right:0px;}
+.button {text-transform: uppercase;}
 
 /* Carousel Styling*/
 .owl-carousel.owl-theme { 

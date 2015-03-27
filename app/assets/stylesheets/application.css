@@ -40,7 +40,10 @@ body, input {
   height:200px;
   padding:0px 10px;
   margin-top: 20px;
+  /*min-width: 200px;*/
 }
+
+.owl-item {min-width:200px!important;}
 
 .owl-theme .owl-controls .owl-buttons div{
   color:#333333;
@@ -70,16 +73,26 @@ input[type="text"], textarea {
 }
 
 /* Notifications */
+.notifyTitle {
+  border:solid 1px grey;
+  padding:10px;
+}
 .notifications {
   z-index: 5000;
-  position:absolute;
-  width:300px;
-  right:16%;
+  position:relative;
+  width:280px;
+  margin-bottom: -400px;
+  margin-top:-100px;
+
 
 }
 .notifications p {
   background:#fff;
   padding: 20px 20px;
+  margin-right:-5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 .arrow-up {
@@ -89,8 +102,26 @@ input[type="text"], textarea {
   border-right: 10px solid transparent;
   border-bottom: 10px solid white;
   margin-left:88%;
+  margin-top:20px;
 }
 
+.notifyIcon {
+  width:25px;
+  opacity:0.7;
+}
+
+.notifyAlt {
+  display: none;
+}
+/* User Info*/
+
+.UserInfo h2 {
+  font-weight: 300;
+}
+
+.UserInfo {
+  padding:40px;
+}
 /*Errors styling*/
 #error_explanation ul li { list-style-type: none; color: red; }
 #error_explanation {padding-bottom: 0px; text-align: center;}
@@ -105,6 +136,10 @@ input[type="text"], textarea {
 
 @media screen and (max-width: 700px) {
    .selected { width:550px; max-width: 90%;} 
+   .notifyAlt { display: block; }
+   .notifyTitle { display: none; }
+   .arrow-up { margin-left: 90% }
+
 }
 
 @media screen and (max-width: 500px) {

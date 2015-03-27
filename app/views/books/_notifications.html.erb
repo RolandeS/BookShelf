@@ -1,4 +1,4 @@
-<h5 class="notify">Notifications</h5>
+<h5 class="notify"><span class="notifyTitle">Notifications</span> <span class="notifyAlt"><%= image_tag 'notify.png', class: 'notifyIcon' %></span></h5>
 <% if current_user.books.count > 50 %>
   <div class="arrow-up"></div>
   <p>You have <%= current_user.books.count %> books, start deleting!</p>  

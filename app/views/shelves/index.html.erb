@@ -1,29 +1,33 @@
 <div class="row">
   <div class="wrapperShelf">
 
-    <div class="UserInfo clearfix">
+      
+      
+    
+    <div class="UserInfo clearfix row">
+      <h2>Hey, <%=current_user.first_name.capitalize %></h2>
+      <h4>welcome to your bookshelf</h4>
+      
       <div class="notifications right">
         <%= render 'books/notifications'%>
       </div>
 
-      <div class="clearfix"></div>
-      <h2>Hey, <%=current_user.first_name.capitalize %></h2>
-      <h4>welcome to your bookshelf</h4>
       
-    <div class="large-4 columns right searchbox">
-      <%= form_tag shelves_path, method: :get, remote: true, authentication: false, id: 'search-form' do %>
-          <div class="row collapse">
-              <div class="small-9 columns field">
-                  <%= text_field_tag :search, params[:search] %>
+        <div class="large-4 columns right searchbox">
+          <%= form_tag shelves_path, method: :get, remote: true, authentication: false, id: 'search-form' do %>
+              <div class="row collapse">
+                  <div class="small-9 columns field">
+                      <%= text_field_tag :search, params[:search] %>
+                  </div>
+                  <div class="small-3 columns">
+                     <%= submit_tag "Search", class: 'button postfix small' %>
+                   </div>
               </div>
-              <div class="small-3 columns">
-                 <%= submit_tag "Search", class: 'button postfix small' %>
-               </div>
-          </div>
-      <% end %>
-    </div>
+          <% end %>
+        </div>
+    
 
-     </div>
+    </div>
     
 
     <div class="shelf-list clearfix">

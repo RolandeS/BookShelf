@@ -31,7 +31,6 @@
       </ul>
       <ul class="right">
         <% if current_user %>
-            <!-- <li><a href="#">Signed in as <%= current_user.first_name.capitalize %>.</a></li> -->
           <li><%= link_to 'Logout', :logout, method: :post %></li>
         <% else %>
           <li><%= link_to 'Register', new_user_path %></li>
@@ -48,7 +47,8 @@
 
     <%= yield %>
   <footer>
-    <!-- <h5>bookshelf@gmail.com</h5> -->
+    <h5>Contact Us</h5>
+    <p>WebBookShelf@gmail.com</p>
    <span> © BookShelf 2015</span>
   </footer>
   </body>

@@ -48,7 +48,7 @@ body, input {
   /*min-width: 200px;*/
 }
 
-.owl-item {min-width:200px!important;}
+/*.owl-item {min-width:200px!important;}*/
 
 .owl-theme .owl-controls .owl-buttons div{
   color:#333333;

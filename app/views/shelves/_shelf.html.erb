@@ -31,7 +31,7 @@
 	<div id="book-list-<%= shelf.id %>" class="clearfix">
 		<% if shelf.books.any? %>
 				<div class="owl-carousel">
-					<%= render shelf.books.order(last_clicked: :ASC).all, locals: {shelf: @shelf, book: @book} %>
+					<%= render shelf.books, locals: {shelf: @shelf, book: @book} %>
 				</div>
 		<% end %>
 	</div>

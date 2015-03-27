@@ -6,7 +6,7 @@
 </br>
 	<% @shelves.each do |shelf| %>
 		<div class="shelfStart large-6 columns" id="<%= shelf.id %>">
-		<h4 class="getstarted"><%= shelf.name %> BookShelf</h4>
+		<h4 class="getstarted"><%= shelf.name %></h4>
 		</br>
 
 					<% if shelf.books.any? %>		

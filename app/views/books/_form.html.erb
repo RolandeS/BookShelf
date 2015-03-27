@@ -1,4 +1,4 @@
-
+<h3>Add a Book</h3>
 <%= form_for([shelf, book], :remote => true) do |f| %>
 
 	<div class="field">
@@ -15,8 +15,8 @@
 	</div>
 	<div class="description">
 			<%= f.label :read, "Already looked at this page?" %>
-			<%= f.radio_button :read, 'Unread', :checked => true %> Unread
-			<%= f.radio_button :read, 'Revisit' %> Revisit Later </br>
+			<%= f.radio_button :read, 'Unread' %> Unread
+			<%= f.radio_button :read, 'Revisit', :checked => true %> Revisit Later </br>
 		</div>	
 
 		<p class="bookErrors"></p>

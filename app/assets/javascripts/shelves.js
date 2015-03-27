@@ -47,14 +47,11 @@ $(document).on('ready page:load', function(){
 	carouselInit(".owl-carousel");
 	flipInit(".card");
 
-  $('.notifications p').hide();
-  $('.notifications div').hide();
-
   if ($('.notifications:has(p)')) {
     $('.notifications').click(function(){
       $('.notifications div').fadeIn(1000).delay(3000).fadeOut(1000);
       $('.notifications p').fadeIn(1000).delay(3000).fadeOut(1000);
-    })
+    });
   }
 
   $(document).delegate( ".bookInfo", "click", function() {

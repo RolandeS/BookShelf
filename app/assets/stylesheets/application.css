@@ -83,9 +83,10 @@ input[type="text"], textarea {
   width:280px;
   margin-bottom: -400px;
   margin-top:-100px;
-
-
 }
+
+.notifications div {display: none;}
+
 .notifications p {
   background:#fff;
   padding: 20px 20px;
@@ -93,6 +94,7 @@ input[type="text"], textarea {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  display: none;
 }
 
 .arrow-up {

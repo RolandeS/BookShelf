@@ -6,6 +6,7 @@
 
 <% else %>
   $("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
+  $(".notifications").html("<%= j(render 'notifications')%>");
   carouselInit("#shelf-<%= @shelf.id %> .owl-carousel")
   $('.reveal-modal-bg').foundation('reveal', 'close');
   flipInit(".card");

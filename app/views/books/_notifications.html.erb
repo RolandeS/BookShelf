@@ -1,0 +1,19 @@
+<h5 class="notify"><span class="notifyTitle">Notifications</span> <span class="notifyAlt"><%= image_tag 'notify.png', class: 'notifyIcon' %></span></h5>
+<% if current_user.books.count > 50 %>
+  <div class="arrow-up"></div>
+  <p>You have <%= current_user.books.count %> books, start deleting!</p>  
+<% end %>
+<% if current_user.books.where(read: 'Revisit').count > 5 %>
+  <div class="arrow-up"></div>
+  <p>You have <%= current_user.books.where(read: 'Revisit').count %> books to revisit.</br>
+
+  <% book = current_user.books.where(last_clicked: nil).sample %> <%= book.name %> hasn't been read. Maybe you should check it out or delete it.</p>
+
+<% elsif current_user.books.where(last_clicked: nil).count > 10 %></br>
+  <div class="arrow-up"></div>
+  <p>You have <%= current_user.books.where(last_clicked: nil).count %> unread books, start reading!</p>
+<% else %>
+  <div class="arrow-up"></div>
+  <p>Your BookShelf looks awesome!</p>
+<% end %>
+

@@ -3,6 +3,9 @@ before_filter :load_shelf
 
   def new
   	@user = User.new
+    if current_user
+      redirect_to :mybookshelf
+    end
   end
 
   def create

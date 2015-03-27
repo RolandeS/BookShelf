@@ -1,5 +1,5 @@
 
-<div id="book-<%= book.id %> book" class="item">
+<div id="book-<%= book.id %> book" class="item" data-id="<%= book.id %>">
 	<!-- group of stuff in book end -->
 	<div class="cardFor-<%= book.id %> card"> 
 			<!-- Front of the book -->
@@ -31,9 +31,12 @@
 									</div>
 									<div class="description">
 										<%= f.label :read, "Already looked at this page?" %>
-										<%= f.radio_button :read, 'Read' %> Read
-										<%= f.radio_button :read, 'Revisit' %> Revisit Later </br>
+										<%= f.radio_button :read, 'Unread' %> Unread
+										<%= f.radio_button :read, 'Revisit', :checked => true %> Revisit Later </br>
 									</div>
+									
+									<p class="bookErrors"></p>
+
 									<div class="actions">
 										<%= f.submit :submit, value: "Save", class: 'button closeModalSubmit tiny' %>
 									</div>

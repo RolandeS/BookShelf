@@ -45,6 +45,10 @@ skip_before_filter :verify_authenticity_token
 #   Rendered books/add_book_extension.html.erb within layouts/application (1.1ms)
 # Completed 200 OK in 456ms (Views: 436.5ms | ActiveRecord: 1.1ms)
   
+  def add_last_click
+    @book = Book.find(params[:id])
+    @book.last_clicked = Time.now
+    @book.save
   end 
 
   def show
@@ -57,13 +61,16 @@ skip_before_filter :verify_authenticity_token
 
   def update
     @book = Book.find(params[:id])
-    
+
     respond_to do |format|
       if @book.update_attributes(book_params)
         format.html {redirect_to shelves_path}
         format.js {}
+      else 
+        format.html {redirect_to shelves_path}
+        format.js {} 
       end
-    end 
+    end
   end
 
   def destroy
@@ -79,7 +86,7 @@ skip_before_filter :verify_authenticity_token
 
   private
   def book_params
-    params.require(:book).permit(:name, :link, :note, :read, :shelf_id, :icon)
+    params.require(:book).permit(:id, :name, :link, :note, :read, :last_clicked, :shelf_id, :icon)
   end
     
   def load_shelf

@@ -40,17 +40,40 @@ function flipInit(selector){
 }
 
 $(document).on('ready page:load', function(){
-	$('.closeModalSubmit').on("click", function(){
+	
+  $('.closeModalSubmit').on("click", function(){
 	});
 	
 	carouselInit(".owl-carousel");
 	flipInit(".card");
 
+  if ($('.notifications:has(p)')) {
+    $('.notifications').click(function(){
+      $('.notifications div').fadeIn(1000).delay(3000).fadeOut(1000);
+      $('.notifications p').fadeIn(1000).delay(3000).fadeOut(1000);
+    });
+  }
+
   $(document).delegate( ".bookInfo", "click", function() {
+    console.log('in handler;');
+
+    var book_id = $(this).parents('.item').data('id')
+    var shelf_id = $(this).parents('.singleShelf').data('id')
+
+    $.ajax({
+        url: "/books/add_last_click",
+        data: {'shelf_id' : shelf_id, 'id': book_id},
+        dataType: "script",
+        type: 'POST'
+      });
+
+      console.log('time updated;');
+
     var openLink = $(this).find('.hiddenLink').text();
     var link = "http://"+ openLink
-    console.log(link);
     window.open(link, '_blank');
+
+
   }); 
 
   $(document).foundation('reveal', {animation: 'fade'});

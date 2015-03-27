@@ -1,8 +1,12 @@
 <% if @book.errors.any? %>
-  $('#addBookModal_' + <%= @shelf.id %>).find('.bookErrors').html("<%= j(render partial: "/shelves/errors", locals: {object: @book}) %>")
+  $('.open #modal-edit-book-fields')
+      .find('.bookErrors')
+      .html("<%= j(render partial: "/shelves/errors", locals: {object: @book}) %>")
   $(".bookErrors").fadeIn().delay(2300).fadeOut();
+
 <% else %>
   $("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
+  $(".notifications").html("<%= j(render 'notifications')%>");
   carouselInit("#shelf-<%= @shelf.id %> .owl-carousel")
   $('.reveal-modal-bg').foundation('reveal', 'close');
   flipInit(".card");

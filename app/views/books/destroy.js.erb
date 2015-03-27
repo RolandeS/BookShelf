@@ -3,5 +3,6 @@ $('.delete_book').on('ajax:success', function() {
 });  
 
 $("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
+$(".notifications").html("<%= j(render 'notifications')%>");
 carouselInit("#shelf-<%= @shelf.id %> .owl-carousel")
 flipInit(".card");

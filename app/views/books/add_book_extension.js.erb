@@ -1,0 +1,26 @@
+alert('in js.erb!');
+
+$("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
+  $(".notifications").html("<%= j(render 'notifications')%>");
+
+
+  var carousel = $("#shelf-<%= @shelf.id %> .owl-carousel")
+
+  carousel.owlCarousel({
+      items : 2,
+      navigation : true, 
+      navigationText : ["<",">"],
+      pagination : false,
+      scrollPerPage : false,
+      slideSpeed : 300,
+    });
+
+  $('.open form')[0].reset();
+
+
+$('.reveal-modal-bg').foundation('reveal', 'close');
+
+var owl = carousel.data('owlCarousel');
+owl.goTo(<%= @shelf.books.count %>);
+
+flipInit(".card");

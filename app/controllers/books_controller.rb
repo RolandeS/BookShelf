@@ -30,14 +30,18 @@ skip_before_filter :verify_authenticity_token
   end
 
   def add_book_extension
-    # create book in here with params being passed in from extension
-    # @book = Book.new
-    # binding.pry
     @shelf = Shelf.find(params[:shelf_id])
-
     @book = @shelf.books.build(book_params)
     @book.shelf = @shelf
-    @book.save  
+
+    
+      if (@book.save && request.xhr?)
+        # format.html { redirect_to :mybookshelf }
+        render @shelves
+      end
+   
+
+
   end 
   
   def add_last_click

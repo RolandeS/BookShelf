@@ -15,7 +15,7 @@ skip_before_filter :verify_authenticity_token
   def create
     @book = @shelf.books.build(book_params)
     @book.shelf = @shelf
-
+    # binding.pry
     respond_to do |format|
       if @book.save
         format.html { redirect_to shelves_path, notice: 'Your new Book is addded!' }
@@ -30,20 +30,15 @@ skip_before_filter :verify_authenticity_token
   end
 
   def add_book_extension
-    @book = Book.new
-    
-    # @shelf = Shelf.find(params[:shelf_id])
-    # @book = @shelf.books.build(book_params)
-    @book.save
-    # create book in here with params being passed in.
+    # create book in here with params being passed in from extension
+    # @book = Book.new
+    # binding.pry
+    @shelf = Shelf.find(params[:shelf_id])
 
-# Started POST "/books/add_book_extension" for ::1 at 2015-03-25 12:04:58 -0400
-# Processing by BooksController#add_book_extension as */*
-#   Parameters: {"name"=>"Learn Ruby with the Neo Ruby Koans", "link"=>"http://rubykoans.com/", "note"=>"", "shelf_id"=>"123"}
-#   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
-#   Shelf Load (0.1ms)  SELECT  "shelves".* FROM "shelves" WHERE "shelves"."user_id" = ? AND "shelves"."id" = ? LIMIT 1  [["user_id", 1], ["id", 123]]
-#   Rendered books/add_book_extension.html.erb within layouts/application (1.1ms)
-# Completed 200 OK in 456ms (Views: 436.5ms | ActiveRecord: 1.1ms)
+    @book = @shelf.books.build(book_params)
+    @book.shelf = @shelf
+    @book.save  
+  end 
   
   def add_last_click
     @book = Book.find(params[:id])

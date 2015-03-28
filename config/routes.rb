@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   post 'books/add_last_click'
 
+  get 'chrome_shelves/:user_id' => 'shelves#chrome_shelves'
 
   resources :user_sessions, only: [:new, :create, :destroy]
 

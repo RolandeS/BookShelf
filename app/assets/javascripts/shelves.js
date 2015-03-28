@@ -54,6 +54,15 @@ $(document).on('ready page:load', function(){
     });
   }
 
+  // var user_id = $('.user').data('id')
+  // console.log(user_id)
+  // $.ajax({
+  //   url: "shelves/chrome_shelves",
+  //   data: {'user_id' : user_id},
+  //   dataType: "script",
+  //   type: 'POST'
+  // })
+
   $(document).delegate( ".bookInfo", "click", function() {
     console.log('in handler;');
 
@@ -77,5 +86,7 @@ $(document).on('ready page:load', function(){
   }); 
 
   $(document).foundation('reveal', {animation: 'fade'});
+
+
 
 });

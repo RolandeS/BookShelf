@@ -26,7 +26,10 @@ class ShelvesController < ApplicationController
   end
 
   def chrome_shelves
-    render json: User.find(params[:user_id]).shelves, each_serializer: ShelfSerializer
+    # binding.pry
+    # render json: User.find(params[:user_id]).shelves, each_serializer: ShelfSerializer
+    render json: current_user.shelves, each_serializer: ShelfSerializer
+
   end
 
   def new

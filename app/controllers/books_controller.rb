@@ -15,7 +15,6 @@ skip_before_filter :verify_authenticity_token
   def create
     @book = @shelf.books.build(book_params)
     @book.shelf = @shelf
-    # binding.pry
     respond_to do |format|
       if @book.save
         format.html { redirect_to shelves_path, notice: 'Your new Book is addded!' }
@@ -33,11 +32,12 @@ skip_before_filter :verify_authenticity_token
     @shelf = Shelf.find(params[:shelf_id])
     @book = @shelf.books.build(book_params)
     @book.shelf = @shelf
+    @book.save
 
     
-      if (@book.save && request.xhr?)
-        # format.html { redirect_to :mybookshelf }
-        render @shelves
+      if request.xhr?
+        redirect_to :mybookshelf
+        # render @shelves
       end
    
 

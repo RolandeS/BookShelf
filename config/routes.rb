@@ -19,7 +19,12 @@ Rails.application.routes.draw do
   resources :password_resets
 
   post 'shelves/add_demo_shelves'
+
+  post 'books/add_book_extension'
+
   post 'books/add_last_click'
+
+  get 'chrome_shelves/:user_id' => 'shelves#chrome_shelves'
 
   resources :user_sessions, only: [:new, :create, :destroy]
 

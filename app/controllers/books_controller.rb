@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
 
 before_filter :load_shelf
+skip_before_filter :verify_authenticity_token
 
   def index
      @book = Book.all
@@ -14,7 +15,6 @@ before_filter :load_shelf
   def create
     @book = @shelf.books.build(book_params)
     @book.shelf = @shelf
-
     respond_to do |format|
       if @book.save
         format.html { redirect_to shelves_path, notice: 'Your new Book is addded!' }
@@ -28,6 +28,22 @@ before_filter :load_shelf
     end
   end
 
+  def add_book_extension
+    @shelf = Shelf.find(params[:shelf_id])
+    @book = @shelf.books.build(book_params)
+    @book.shelf = @shelf
+    @book.save
+
+    
+      if request.xhr?
+        redirect_to :mybookshelf
+        # render @shelves
+      end
+   
+
+
+  end 
+  
   def add_last_click
     @book = Book.find(params[:id])
     @book.last_clicked = Time.now

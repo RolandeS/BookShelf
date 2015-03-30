@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/create'
+
+  get 'password_resets/edit'
+
+  get 'password_resets/update'
+
   root 'users#new'
 
   get 'start/index'
@@ -10,7 +16,15 @@ Rails.application.routes.draw do
     resources :books
   end
 
+  resources :password_resets
+
   post 'shelves/add_demo_shelves'
+
+  post 'books/add_book_extension'
+
+  post 'books/add_last_click'
+
+  get 'chrome_shelves/:user_id' => 'shelves#chrome_shelves'
 
   resources :user_sessions, only: [:new, :create, :destroy]
 
@@ -19,6 +33,7 @@ Rails.application.routes.draw do
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
+  get 'forgotpassword' => 'password_resets#new', :as => :forgotpassword
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

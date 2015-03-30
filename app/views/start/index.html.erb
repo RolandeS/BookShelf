@@ -2,32 +2,29 @@
 	<div class="wrapperShelf">
 	</br>
 	<h1>Get Started!</h1>
-	<h4>Select a shelf name to add some prepoluted shelves to your BookShelf!</h4></br>
+	<h4>Select shelf names to add to your BookShelf!</h4></br>
 </br>
 	<% @shelves.each do |shelf| %>
 		<div class="shelfStart large-6 columns" id="<%= shelf.id %>">
-		<h4 class="getstarted"><%= shelf.name %> BookShelf</h4>
+		<h4 class="getstarted"><%= shelf.name %></h4>
 		</br>
-
 					<% if shelf.books.any? %>		
 						<div class="owl-carousel">
 							<% shelf.books.each do |book| %>
 									<div class= "bookInfo item start">
 											<%= link_to book.name.upcase, "http://"+book.link, :target => "_blank" %> </br>
 											<img src="http://www.google.com/s2/favicons?domain_url=<%=book.link%>" alt="Icon">
-											
 									</div>
 							<% end %>												
 						</div>
 							</br>
 					<% end %>
-		
 		</div>
 	<% end %>
 	</br>
 	</br>
 		<button id="userShelves" class="small">
-			Save and Move to Your BookShelf
+			SAVE AND MOVE TO YOUR BOOKSHELF
 		</button>
 		</br>
 	</div>

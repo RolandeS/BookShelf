@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
 
 before_filter :load_shelf
+skip_before_filter :verify_authenticity_token
 
   def index
      @book = Book.all
@@ -14,7 +15,6 @@ before_filter :load_shelf
   def create
     @book = @shelf.books.build(book_params)
     @book.shelf = @shelf
-
     respond_to do |format|
       if @book.save
         format.html { redirect_to shelves_path, notice: 'Your new Book is addded!' }
@@ -28,6 +28,28 @@ before_filter :load_shelf
     end
   end
 
+  def add_book_extension
+    @shelf = Shelf.find(params[:shelf_id])
+    @book = @shelf.books.build(book_params)
+    @book.shelf = @shelf
+    @book.save
+
+    
+      if request.xhr?
+        redirect_to :mybookshelf
+        # render @shelves
+      end
+   
+
+
+  end 
+  
+  def add_last_click
+    @book = Book.find(params[:id])
+    @book.last_clicked = Time.now
+    @book.save
+  end 
+
   def show
     @book = Book.find(params[:id])
   end
@@ -38,17 +60,16 @@ before_filter :load_shelf
 
   def update
     @book = Book.find(params[:id])
-    
-    # respond_to :js
+
     respond_to do |format|
       if @book.update_attributes(book_params)
         format.html {redirect_to shelves_path}
         format.js {}
-      else
+      else 
         format.html {redirect_to shelves_path}
         format.js {} 
       end
-    end 
+    end
   end
 
   def destroy
@@ -64,7 +85,7 @@ before_filter :load_shelf
 
   private
   def book_params
-    params.require(:book).permit(:name, :link, :note, :read, :shelf_id, :icon)
+    params.require(:book).permit(:id, :name, :link, :note, :read, :last_clicked, :shelf_id, :icon)
   end
     
   def load_shelf

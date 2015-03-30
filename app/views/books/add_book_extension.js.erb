@@ -1,14 +1,6 @@
-<% if @book.errors.any? %>
-  $('#addBookModal_' + <%= @shelf.id %>)
-    .find('.bookErrors')
-    .html("<%= j(render partial: "/shelves/errors", locals: {object: @book}) %>")
-    
-  $(".bookErrors").fadeIn().delay(2300).fadeOut();
-  
-  $('.open form')[0].reset();
-     
-<% else %>
-  $("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
+alert('in js.erb!');
+
+$("#shelf-<%= @shelf.id %>").replaceWith("<%= j(render @shelf)%>");
   $(".notifications").html("<%= j(render 'notifications')%>");
 
 
@@ -32,15 +24,3 @@ var owl = carousel.data('owlCarousel');
 owl.goTo(<%= @shelf.books.count %>);
 
 flipInit(".card");
-
-<% end %>
-
-
-
-
-
-
-
-
-
-

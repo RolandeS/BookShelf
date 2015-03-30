@@ -10,6 +10,7 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
   </head>
 
   <body>
@@ -27,10 +28,10 @@
         <% if current_user %>
           <li><%= link_to 'My BookShelf', :mybookshelf %></li>
         <% end %>
+        
       </ul>
       <ul class="right">
         <% if current_user %>
-            <li><a href="#">Signed in as <%= current_user.first_name.capitalize %>.</a></li>
           <li><%= link_to 'Logout', :logout, method: :post %></li>
         <% else %>
           <li><%= link_to 'Register', new_user_path %></li>
@@ -46,9 +47,11 @@
   </div> -->
 
     <%= yield %>
-  <!-- <footer>
-    © BookShelf 2015
-  </footer> -->
+  <footer>
+    <h5>Contact Us</h5>
+    <p>WebBookShelf@gmail.com</p>
+   <span> © BookShelf 2015</span>
+  </footer>
   </body>
 </html>
 

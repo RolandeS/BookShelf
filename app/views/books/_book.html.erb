@@ -1,5 +1,5 @@
 
-<div id="book-<%= book.id %> book" class="item">
+<div id="book-<%= book.id %> book" class="item" data-id="<%= book.id %>">
 	<!-- group of stuff in book end -->
 	<div class="cardFor-<%= book.id %> card"> 
 			<!-- Front of the book -->
@@ -7,8 +7,8 @@
 				<div class="bookInfo">
 					<p class="hiddenLink" hidden><%=book.link%></p>
 					
-					<%=book.name.upcase%></br>
-					<img src="http://www.google.com/s2/favicons?domain_url=<%=book.link%>" alt="Icon">
+					<p class="bookName"><%=book.name.upcase%></br> 	<img src="http://www.google.com/s2/favicons?domain_url=<%=book.link%>" alt="Icon"></p>
+				
 					</br><span class="read"><%= book.read %></span></br>
 					
 					<!-- Edit form  -->
@@ -31,8 +31,8 @@
 									</div>
 									<div class="description">
 										<%= f.label :read, "Already looked at this page?" %>
-										<%= f.radio_button :read, 'Read' %> Read
-										<%= f.radio_button :read, 'Revisit' %> Revisit Later </br>
+										<%= f.radio_button :read, 'Unread' %> Unread
+										<%= f.radio_button :read, 'Revisit', :checked => true %> Revisit Later </br>
 									</div>
 									
 									<p class="bookErrors"></p>

@@ -5,6 +5,11 @@ $text-color:#333333;
 html * { color: $text-color; }
 body { background: url("homepage_alt5.jpg") no-repeat center center fixed; }
 
+.notify {
+  cursor: pointer;
+  text-align:right;
+  }
+
 .wrapperShelf{
   margin: 100px 0px;
   padding:40px 50px;

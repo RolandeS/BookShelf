@@ -291,7 +291,8 @@ Book.create!(
 Book.create!(
   name: "Capybara",
   link: "jnicklas.github.io/capybara/",
-  read: "Gem: Write feature specs that run in a web browser.",
+  read: "Revisit",
+  note: "Gem: Write feature specs that run in a web browser.",
   shelf: testing_shelf
   )
 
@@ -779,14 +780,6 @@ Book.create!(
   shelf: myProject_shelf
   )
 
-
-
-
-# #-------------------------- Frameworks ----------------------------------
-# frameworks_shelf = Shelf.create!(
-#   name: "JS Templates",
-#   user: demo_user
-#   )
 
 
 

@@ -3,7 +3,7 @@ $text-color:#333333;
 
 /*General shelf styling*/
 html * { color: $text-color; }
-body { background: url("homepage_alt5.jpg") no-repeat center center fixed; }
+// body { background: asset_url("homepage_alt5.jpg") no-repeat center center fixed; }
 
 .notify {
   cursor: pointer;

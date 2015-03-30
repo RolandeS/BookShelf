@@ -4,7 +4,7 @@ $text-color:#333333;
 html * { color: $text-color; }
 
 .wrapper {
-  background: url("homepage_alt5.jpg") no-repeat center center fixed;
+  // background: asset_url("homepage_alt5.jpg") no-repeat center center fixed;
   padding:50px;
 }
 

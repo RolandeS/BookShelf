@@ -27,6 +27,11 @@ body, input {
 	font-weight: 300;
 }
 
+.wrapper {
+  background: url("homepage_alt5.jpg") no-repeat center center fixed;
+  padding:50px;
+}
+
 .Logo { height:32px;}
 .top-bar .name h1 a { padding-right:0px;}
 .button {text-transform: uppercase;}

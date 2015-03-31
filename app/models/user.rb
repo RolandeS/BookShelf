@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :shelves
   has_many :books, through: :shelves
 
-  validates :password, length: { minimum: 0 }
+  validates :password, length: { minimum: 5 }
   validates :password, confirmation: true
   validates :first_name, :email, :password, :password_confirmation, presence: true
 

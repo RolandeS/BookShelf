@@ -11,8 +11,6 @@ demo_user = User.create!(
     first_name: "Demo",
     last_name: "User",
     email: "demo.user@bookshelf.com",
-    password: "1",
-    password_confirmation: "1"
   )
 
 #--------------------------RUBY ON RAILS------------------------------
